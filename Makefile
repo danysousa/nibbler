@@ -6,7 +6,7 @@
 #    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/03 13:29:20 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/03 14:53:42 by dsousa           ###   ########.fr        #
+#    Updated: 2015/03/03 15:02:34 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,15 @@ INC			+=	-I includes
 
 INC_DIR		=	includes/
 
-INC_FILES	=	CoreEngine.hpp
+INC_FILES	=	CoreEngine.hpp\
+				GameObject.hpp\
 
 INC_SRC		=	$(addprefix $(INC_DIR), $(INC_FILES))
 
 SRC_DIR		=	srcs/
 
 FILES		=	main.cpp\
-				CoreEngine.cpp
+				CoreEngine.cpp\
 
 SRC			=	$(addprefix $(SRC_DIR), $(FILES))
 
