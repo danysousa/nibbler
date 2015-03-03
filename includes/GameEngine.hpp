@@ -1,37 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CoreEngine.hpp                                     :+:      :+:    :+:   */
+/*   GameEngine.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:59:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 15:20:25 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
+/*   Updated: 2015/03/03 16:40:10 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COREENGINE_HPP
-# define COREENGINE_HPP
-# include <GameEngine.hpp>
+#ifndef GAMEENGINE_HPP
+# define GAMEENGINE_HPP
+# include <iostream>
+# include <Snake.hpp>
 
-class CoreEngine
+class GameEngine
 {
 	public:
 
 		/*
 		** CONSTRUCT & DESTRUCT
 		*/
-		CoreEngine( void );
-		CoreEngine( CoreEngine const & cpy );
-		~CoreEngine( void );
+		GameEngine( void );
+		GameEngine( int width, int height);
+		GameEngine( GameEngine const & cpy );
+		~GameEngine( void );
 
 		/*
 		** OPERATOR
 		*/
-		CoreEngine operator=( CoreEngine const & cpy );
+		GameEngine operator=( GameEngine const & cpy );
+
+		/*
+		** METHOD
+		*/
+		void	updateAll( void );
+		void	renderAll( void );
 
 	private:
-		GameEngine		*gameEngine;
+		int		widthMap;
+		int		heightMap;
+		Snake	*snake;
 };
 
 #endif
