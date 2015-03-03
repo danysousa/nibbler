@@ -1,47 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GameEngine.hpp                                     :+:      :+:    :+:   */
+/*   Snake.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 16:40:10 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/03 15:23:04 by dsousa            #+#    #+#             */
+/*   Updated: 2015/03/03 16:46:15 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAMEENGINE_HPP
-# define GAMEENGINE_HPP
+#ifndef SNAKE_HPP
+# define SNAKE_HPP
+# include <AGameObject.hpp>
+# include <BodyBlock.hpp>
 # include <iostream>
-# include <Snake.hpp>
+# include <vector>
 
-class GameEngine
+class Snake : public AGameObject
 {
 	public:
-
 		/*
 		** CONSTRUCT & DESTRUCT
 		*/
-		GameEngine( void );
-		GameEngine( int width, int height);
-		GameEngine( GameEngine const & cpy );
-		~GameEngine( void );
+		Snake( void );
+		Snake( int x, int y );
+		Snake( Snake const & cpy );
+		~Snake( void );
 
 		/*
 		** OPERATOR
 		*/
-		GameEngine operator=( GameEngine const & cpy );
+		Snake operator=( Snake const & cpy );
+
+		/*
+		** GETTER & SETTER
+		*/
+		std::vector<BodyBlock *>	getBody( void ) const;
 
 		/*
 		** METHOD
 		*/
-		void	updateAll( void );
-		void	renderAll( void );
+		virtual void	update( void );
+		virtual void	render( void );
 
 	private:
-		int		widthMap;
-		int		heightMap;
-		Snake	*snake;
+		std::vector<BodyBlock *>		body;
 };
 
 #endif
