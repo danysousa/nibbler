@@ -1,45 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CoreEngine.cpp                                     :+:      :+:    :+:   */
+/*   GameEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 15:21:59 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
+/*   Updated: 2015/03/03 15:21:17 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <CoreEngine.hpp>
-#include <iostream>
+#include <GameEngine.hpp>
 
 /*
 ** CONSTRUCT & DESTRUCT
 */
-CoreEngine::CoreEngine( void ) : gameEngine( new GameEngine )
+GameEngine::GameEngine( void ) : widthMap(100), heightMap(50)
+{
+	std::cout << "coucou" << std::endl;
+	return ;
+}
+
+GameEngine::GameEngine( int width, int height ) : widthMap(width), heightMap(height)
 {
 	return ;
 }
 
-CoreEngine::CoreEngine( CoreEngine const & cpy ) : gameEngine( new GameEngine )
+GameEngine::GameEngine( GameEngine const & cpy )
 {
 	*this = cpy;
 }
 
-CoreEngine::~CoreEngine( void )
+GameEngine::~GameEngine( void )
 {
-	delete this->gameEngine;
 	return ;
 }
 
 /*
 ** OPERATOR
 */
-CoreEngine		CoreEngine::operator=( CoreEngine const & cpy )
+GameEngine		GameEngine::operator=( GameEngine const & cpy )
 {
-	return cpy;
+	return ( cpy );
 }
 
 /*
 ** METHOD
 */
+
+void		GameEngine::updateAll( void )
+{
+	if (this->widthMap || this->heightMap)
+		return ;
+	return ;
+}
