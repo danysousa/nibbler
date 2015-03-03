@@ -6,7 +6,7 @@
 #    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/03 13:29:20 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/03 13:33:08 by dsousa           ###   ########.fr        #
+#    Updated: 2015/03/03 15:02:34 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,15 @@ INC			+=	-I includes
 
 INC_DIR		=	includes/
 
-INC_FILES	=	$(NAME).hpp
+INC_FILES	=	CoreEngine.hpp\
+				GameObject.hpp\
 
 INC_SRC		=	$(addprefix $(INC_DIR), $(INC_FILES))
 
 SRC_DIR		=	srcs/
 
-FILES		=	main.cpp
+FILES		=	main.cpp\
+				CoreEngine.cpp\
 
 SRC			=	$(addprefix $(SRC_DIR), $(FILES))
 
@@ -53,7 +55,6 @@ clean:
 fclean:			clean
 	@/bin/rm -f $(NAME)
 	@echo "\033[31m"$(NAME) : deleted"\033[0m"
-	@make fclean -C libft
 re:				fclean all
 
 .PHONY:			all clean fclean re

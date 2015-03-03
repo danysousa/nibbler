@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   GameObject.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:23:20 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 14:52:54 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/03 14:59:01 by dsousa            #+#    #+#             */
+/*   Updated: 2015/03/03 15:01:59 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <CoreEngine.hpp>
+#ifndef GAMEOBJECT_HPP
+# define GAMEOBJECT_HPP
 
-static void		ft_usage( void )
+class AGameObject
 {
-	std::cout << "Usage : ./nibbler [width] [height]" << std::endl;
+	public:
+		/*
+		** CONSTRUCT & DESTRUCT
+		*/
+		GameObject( void );
+		GameObject( GameObject const & cpy );
+		~GameObject( void );
 
-	return ;
-}
+		/*
+		** OPERATOR
+		*/
+		GameObject operator=( GameObject const & cpy );
 
-int main( void )
-{
-	ft_usage();
-	CoreEngine	core = CoreEngine();
+		/*
+		** METHOD
+		*/
+		virtual void	update( void ) = 0;
+		virtual void	render( void ) = 0;
 
-	return 0;
-}
+};
+
+#endif

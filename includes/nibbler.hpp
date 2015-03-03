@@ -6,12 +6,12 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:33:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 13:34:17 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/03 14:18:41 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef NIBBLER_HPP
-#define NIBBLER_HPP
+# define NIBBLER_HPP
 
 
 #endif
