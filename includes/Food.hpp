@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Snake.hpp                                          :+:      :+:    :+:   */
+/*   Food.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 15:23:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 17:09:49 by nschilli         ###   ########.fr       */
+/*   Created: 2015/03/03 17:07:37 by nschilli          #+#    #+#             */
+/*   Updated: 2015/03/03 17:49:25 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SNAKE_HPP
-# define SNAKE_HPP
+#ifndef FOOD_HPP
+# define FOOD_HPP
 # include <AGameObject.hpp>
-# include <BodyBlock.hpp>
 # include <iostream>
-# include <vector>
 
-class Snake : public AGameObject
+class Food : public AGameObject
 {
 	public:
 		/*
 		** CONSTRUCT & DESTRUCT
 		*/
-		Snake( void );
-		Snake( int x, int y );
-		Snake( Snake const & cpy );
-		~Snake( void );
+		Food( int x, int y, int color );
+		Food( Food const & cpy );
+		~Food( void );
 
 		/*
 		** OPERATOR
 		*/
-		Snake operator=( Snake const & cpy );
+		Food operator=( Food const & cpy );
 
 		/*
 		** GETTER & SETTER
 		*/
-		std::vector<BodyBlock *>	getBody( void ) const;
-		int							getSize( void ) const;
+		int		getX( void ) const;
+		int		getY( void ) const;
+		int		getColor( void ) const;
 
 		/*
 		** METHOD
@@ -46,8 +44,12 @@ class Snake : public AGameObject
 		virtual void	render( void );
 
 	private:
-		int								size;
-		std::vector<BodyBlock *>		body;
+		Food( void );
+
+		int				x;
+		int				y;
+		int				color;
+
 };
 
 #endif
