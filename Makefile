@@ -6,7 +6,7 @@
 #    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/03 13:29:20 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/03 13:33:08 by dsousa           ###   ########.fr        #
+#    Updated: 2015/03/03 14:19:33 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,14 @@ INC			+=	-I includes
 
 INC_DIR		=	includes/
 
-INC_FILES	=	$(NAME).hpp
+INC_FILES	=	CoreEngine.hpp
 
 INC_SRC		=	$(addprefix $(INC_DIR), $(INC_FILES))
 
 SRC_DIR		=	srcs/
 
-FILES		=	main.cpp
+FILES		=	main.cpp\
+				CoreEngine.cpp
 
 SRC			=	$(addprefix $(SRC_DIR), $(FILES))
 
