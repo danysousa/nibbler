@@ -1,29 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   CoreEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:23:20 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 14:52:54 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
+/*   Updated: 2015/03/03 15:02:53 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <CoreEngine.hpp>
+#include <iostream>
 
-static void		ft_usage( void )
+/*
+** CONSTRUCT & DESTRUCT
+*/
+CoreEngine::CoreEngine( void )
 {
-	std::cout << "Usage : ./nibbler [width] [height]" << std::endl;
-
 	return ;
 }
 
-int main( void )
+CoreEngine::CoreEngine( CoreEngine const & cpy )
 {
-	ft_usage();
-	CoreEngine	core = CoreEngine();
-
-	return 0;
+	*this = cpy;
 }
+
+CoreEngine::~CoreEngine( void )
+{
+	return ;
+}
+
+/*
+** OPERATOR
+*/
+CoreEngine		CoreEngine::operator=( CoreEngine const & cpy )
+{
+	return cpy;
+}
+
+/*
+** METHOD
+*/

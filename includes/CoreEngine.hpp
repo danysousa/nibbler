@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   CoreEngine.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:23:20 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 14:52:54 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/03 13:59:51 by dsousa            #+#    #+#             */
+/*   Updated: 2015/03/03 14:51:33 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <CoreEngine.hpp>
+#ifndef COREENGINE_HPP
+# define COREENGINE_HPP
 
-static void		ft_usage( void )
+class CoreEngine
 {
-	std::cout << "Usage : ./nibbler [width] [height]" << std::endl;
+	public:
 
-	return ;
-}
+		/*
+		** CONSTRUCT & DESTRUCT
+		*/
+		CoreEngine( void );
+		CoreEngine( CoreEngine const & cpy );
+		~CoreEngine( void );
 
-int main( void )
-{
-	ft_usage();
-	CoreEngine	core = CoreEngine();
+		/*
+		** OPERATOR
+		*/
+		CoreEngine operator=( CoreEngine const & cpy );
 
-	return 0;
-}
+};
+
+#endif
