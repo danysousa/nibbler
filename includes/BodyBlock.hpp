@@ -1,37 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CoreEngine.hpp                                     :+:      :+:    :+:   */
+/*   BodyBlock.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:59:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 15:20:25 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/03 16:11:36 by dsousa            #+#    #+#             */
+/*   Updated: 2015/03/03 16:43:36 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COREENGINE_HPP
-# define COREENGINE_HPP
-# include <GameEngine.hpp>
+#ifndef BODYBLOCK_HPP
+# define BODYBLOCK_HPP
 
-class CoreEngine
+class BodyBlock
 {
 	public:
-
 		/*
 		** CONSTRUCT & DESTRUCT
 		*/
-		CoreEngine( void );
-		CoreEngine( CoreEngine const & cpy );
-		~CoreEngine( void );
+		BodyBlock( BodyBlock const & cpy );
+		BodyBlock( int x, int y, int color );
+		~BodyBlock( void );
 
 		/*
 		** OPERATOR
 		*/
-		CoreEngine operator=( CoreEngine const & cpy );
+		BodyBlock operator=( BodyBlock const & cpy );
+
+		/*
+		** GETTER & SETTER
+		*/
+		int		getX( void ) const;
+		int		getY( void ) const;
+		int		getColor( void ) const;
+
+		/*
+		** METHOD
+		*/
+		virtual void	render( void );
 
 	private:
-		GameEngine		*gameEngine;
+		BodyBlock( void );
+
+		int				x;
+		int				y;
+		int				color;
+
 };
 
 #endif

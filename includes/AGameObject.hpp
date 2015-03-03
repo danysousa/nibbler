@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AGameObject.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:23:20 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 15:17:04 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/03 14:59:01 by dsousa            #+#    #+#             */
+/*   Updated: 2015/03/03 16:50:56 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <CoreEngine.hpp>
+#ifndef AGAMEOBJECT_HPP
+# define AGAMEOBJECT_HPP
 
-static void		ft_usage( void )
+class AGameObject
 {
-	std::cout << "Usage : ./nibbler [width] [height]" << std::endl;
+	public:
+		/*
+		** CONSTRUCT & DESTRUCT
+		*/
+		AGameObject( void );
+		AGameObject( AGameObject const & );
+		virtual ~AGameObject( void );
 
-	return ;
-}
+		/*
+		** METHOD
+		*/
+		virtual void	update( void ) = 0;
+		virtual void	render( void ) = 0;
 
-int main( void )
-{
-	ft_usage();
-	CoreEngine	core = CoreEngine();
+};
 
-	return 0;
-}
+#endif
