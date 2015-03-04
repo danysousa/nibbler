@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 15:21:59 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/03 17:15:23 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,9 @@ CoreEngine		CoreEngine::operator=( CoreEngine const & cpy )
 /*
 ** METHOD
 */
+void			CoreEngine::loop(void)
+{
+	this->gameEngine->updateAll();
+
+	return ;
+}
