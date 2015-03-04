@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
+#    By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/03 13:29:20 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/03 13:33:08 by dsousa           ###   ########.fr        #
+#    Updated: 2015/03/03 17:47:35 by nschilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,24 @@ INC			+=	-I includes
 
 INC_DIR		=	includes/
 
-INC_FILES	=	$(NAME).hpp
+INC_FILES	=	CoreEngine.hpp\
+				AGameObject.hpp\
+				GameEngine.hpp\
+				Snake.hpp\
+				BodyBlock.hpp\
+				Food.hpp\
 
 INC_SRC		=	$(addprefix $(INC_DIR), $(INC_FILES))
 
 SRC_DIR		=	srcs/
 
-FILES		=	main.cpp
+FILES		=	main.cpp\
+				CoreEngine.cpp\
+				AGameObject.cpp\
+				GameEngine.cpp\
+				Snake.cpp\
+				BodyBlock.cpp\
+				Food.cpp\
 
 SRC			=	$(addprefix $(SRC_DIR), $(FILES))
 
@@ -53,7 +64,6 @@ clean:
 fclean:			clean
 	@/bin/rm -f $(NAME)
 	@echo "\033[31m"$(NAME) : deleted"\033[0m"
-	@make fclean -C libft
 re:				fclean all
 
 .PHONY:			all clean fclean re
