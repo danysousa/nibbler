@@ -1,45 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CoreEngine.hpp                                     :+:      :+:    :+:   */
+/*   RenderEngine.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:59:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 11:11:00 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/04 11:25:13 by dsousa            #+#    #+#             */
+/*   Updated: 2015/03/04 11:35:21 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COREENGINE_HPP
-# define COREENGINE_HPP
-# include <GameEngine.hpp>
+#ifndef RENDERENGINE_HPP
+# define RENDERENGINE_HPP
+# include <iostream>
+# include <string>
 
-class CoreEngine
+class RenderEngine
 {
 	public:
-
 		/*
 		** CONSTRUCT & DESTRUCT
 		*/
-		CoreEngine( void );
-		CoreEngine( CoreEngine const & cpy );
-		~CoreEngine( void );
+		RenderEngine( void );
+		RenderEngine( std::string & libName );
+		RenderEngine( RenderEngine const & cpy );
+		~RenderEngine( void );
 
 		/*
 		** OPERATOR
 		*/
-		CoreEngine operator=( CoreEngine const & cpy );
+		RenderEngine operator=( RenderEngine const & cpy );
+
+		/*
+		** GETTER & SETTER
+		*/
+		std::string		getLibName( void ) const;
+		void			setLibName( std::string const & lib );
 
 		/*
 		** METHOD
 		*/
-		void			loop(void);
 
 	private:
-		GameEngine		*gameEngine;
-		int				start;
-		clock_t			timeStart;
-		clock_t			timeEnd;
+		// void			*loadLib();
+		std::string		libName;
 };
 
 #endif
