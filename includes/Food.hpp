@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:07:37 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/03 17:49:25 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/04 10:32:20 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ class Food : public AGameObject
 		/*
 		** CONSTRUCT & DESTRUCT
 		*/
-		Food( int x, int y, int color );
+		Food( void );
+		Food( int width, int height );
 		Food( Food const & cpy );
 		~Food( void );
 
@@ -44,8 +45,6 @@ class Food : public AGameObject
 		virtual void	render( void );
 
 	private:
-		Food( void );
-
 		int				x;
 		int				y;
 		int				color;

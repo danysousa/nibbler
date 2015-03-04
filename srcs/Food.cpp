@@ -6,15 +6,24 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:15:44 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/03 17:48:51 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/04 10:54:51 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Food.hpp>
 
-Food::Food( int x, int y, int color ) : x( x ), y( y ), color( color )
+Food::Food( void )
 {
+	this->x = 0;
+	this->y = 0;
+	this->color = 0;
+}
 
+Food::Food( int width, int height )
+{
+	this->x = rand() % width;
+	this->y = rand() % height;
+	this->color = rand() % 255;
 }
 
 Food::Food( Food const & cpy )
