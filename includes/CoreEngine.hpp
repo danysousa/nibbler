@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:59:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 10:58:51 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/04 11:11:00 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ class CoreEngine
 
 	private:
 		GameEngine		*gameEngine;
+		int				start;
+		clock_t			timeStart;
+		clock_t			timeEnd;
 };
 
 #endif
