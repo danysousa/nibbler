@@ -1,54 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GameEngine.hpp                                     :+:      :+:    :+:   */
+/*   Ncurses.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 13:33:15 by nschilli         ###   ########.fr       */
+/*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
+/*   Updated: 2015/03/04 14:11:42 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAMEENGINE_HPP
-# define GAMEENGINE_HPP
-# include <iostream>
-# include <Snake.hpp>
-# include <Food.hpp>
 
-class GameEngine
+#ifndef NCURSES_HPP
+# define NCURSES_HPP
+
+#include <iostream>
+#include <ncurses.h>
+
+class Ncurses
 {
 	public:
-
 		/*
 		** CONSTRUCT & DESTRUCT
 		*/
-		GameEngine( void );
-		GameEngine( int width, int height);
-		GameEngine( GameEngine const & cpy );
-		~GameEngine( void );
+		Ncurses( int width, int height );
+		Ncurses( Ncurses const & );
+		virtual ~Ncurses( void );
 
 		/*
 		** OPERATOR
 		*/
-		GameEngine operator=( GameEngine const & cpy );
+		Ncurses		operator=( Ncurses const & cpy );
 
 		/*
 		** GETTER & SETTER
 		*/
-		int		getWidthMap( void );
-		int		getHeightMap( void );
+		int			getWidth( void );
+		int			getHeight( void );
+
 		/*
 		** METHOD
 		*/
-		void	updateAll( void );
-		void	renderAll( void );
+		void		drawSquare( int x, int y, int color );
+		void		drawCircle( int x, int y, int color );
+		void		drawTrangle( int x, int y, int color );
 
 	private:
-		int		widthMap;
-		int		heightMap;
-		Snake	*snake;
-		Food	*food;
+		Ncurses( void );
+
+		int		width;
+		int		height;
+		WINDOW	*win;
+
 };
 
 #endif

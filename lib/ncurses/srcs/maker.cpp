@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nibbler.hpp                                        :+:      :+:    :+:   */
+/*   maker.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:33:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 14:18:41 by dsousa           ###   ########.fr       */
+/*   Created: 2015/03/04 13:18:14 by nschilli          #+#    #+#             */
+/*   Updated: 2015/03/04 14:18:45 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NIBBLER_HPP
-# define NIBBLER_HPP
+#include "Ncurses.hpp"
 
+Ncurses		*maker( int width, int height )
+{
+	Ncurses *n = new Ncurses(width, height);
 
-#endif
+	return ( n );
+}
