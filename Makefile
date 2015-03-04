@@ -6,7 +6,7 @@
 #    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/03 13:29:20 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/04 11:34:34 by dsousa           ###   ########.fr        #
+#    Updated: 2015/03/04 11:39:23 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ INC_FILES	=	CoreEngine.hpp\
 				Snake.hpp\
 				BodyBlock.hpp\
 				RenderEngine.hpp\
+				Food.hpp\
 
 INC_SRC		=	$(addprefix $(INC_DIR), $(INC_FILES))
 
@@ -38,6 +39,7 @@ FILES		=	main.cpp\
 				Snake.cpp\
 				BodyBlock.cpp\
 				RenderEngine.cpp\
+				Food.cpp\
 
 SRC			=	$(addprefix $(SRC_DIR), $(FILES))
 

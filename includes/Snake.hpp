@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Snake.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:23:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 16:46:15 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/03 17:09:49 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Snake : public AGameObject
 		** GETTER & SETTER
 		*/
 		std::vector<BodyBlock *>	getBody( void ) const;
+		int							getSize( void ) const;
 
 		/*
 		** METHOD
@@ -45,6 +46,7 @@ class Snake : public AGameObject
 		virtual void	render( void );
 
 	private:
+		int								size;
 		std::vector<BodyBlock *>		body;
 };
 

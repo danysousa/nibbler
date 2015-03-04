@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Snake.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 16:47:59 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/03 17:14:05 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 /*
 ** CONSTRUCT & DESTRUCT
 */
-Snake::Snake( void )
+Snake::Snake( void ) : size( 4 )
 {
-	this->body.push_back(new BodyBlock(3, 0, 0));
-	this->body.push_back(new BodyBlock(2, 0, 0));
-	this->body.push_back(new BodyBlock(1, 0, 0));
-	this->body.push_back(new BodyBlock(0, 0, 0));
+	this->body.push_back( new BodyBlock( 3, 0, 0 ) );
+	this->body.push_back( new BodyBlock( 2, 0, 0 ) );
+	this->body.push_back( new BodyBlock( 1, 0, 0 ) );
+	this->body.push_back( new BodyBlock( 0, 0, 0 ) );
 
 	return ;
 }
 
-Snake::Snake( int x, int y )
+Snake::Snake( int x, int y ) : size( 4 )
 {
-	this->body.push_back(new BodyBlock(x, y, 0));
-	this->body.push_back(new BodyBlock(x - 1, y, 0));
-	this->body.push_back(new BodyBlock(x - 2, y, 0));
-	this->body.push_back(new BodyBlock(x - 3, y, 0));
+	this->body.push_back( new BodyBlock( x, y, 0 ) );
+	this->body.push_back( new BodyBlock( x - 1, y, 0 ) );
+	this->body.push_back( new BodyBlock( x - 2, y, 0 ) );
+	this->body.push_back( new BodyBlock( x - 3, y, 0 ) );
 
 	return ;
 }
@@ -51,8 +51,8 @@ Snake::~Snake( void )
 Snake Snake::operator=( Snake const & cpy )
 {
 	this->body = cpy.getBody();
-
-	return (*this);
+	this->size = cpy.getSize();
+	return ( *this );
 }
 
 /*
@@ -60,7 +60,12 @@ Snake Snake::operator=( Snake const & cpy )
 */
 std::vector<BodyBlock *>	Snake::getBody( void ) const
 {
-	return (this->body);
+	return ( this->body );
+}
+
+int		Snake::getSize( void ) const
+{
+	return ( this->size );
 }
 
 /*
