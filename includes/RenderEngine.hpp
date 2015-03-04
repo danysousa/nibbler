@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:13 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 14:24:43 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/04 16:10:15 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class RenderEngine
 
 	private:
 		std::string		libName;
-		IGraphicLib		*graphic;
+		// IGraphicLib		*graphic;
 };
 
 #endif

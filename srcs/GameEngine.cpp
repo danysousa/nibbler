@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 13:36:26 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/04 16:09:40 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ GameEngine		GameEngine::operator=( GameEngine const & cpy )
 /*
 ** GETTER & SETTER
 */
-int		GameEngine::getWidthMap( void )
+int		GameEngine::getWidthMap( void ) const
 {
 	return ( this->widthMap );
 }
 
-int		GameEngine::getHeightMap( void )
+int		GameEngine::getHeightMap( void ) const
 {
 	return ( this->heightMap );
 }

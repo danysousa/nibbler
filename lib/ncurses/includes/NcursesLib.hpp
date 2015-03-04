@@ -1,52 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ncurses.hpp                                        :+:      :+:    :+:   */
+/*   NcursesLib.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/04 14:29:16 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/04 15:21:49 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef NCURSES_HPP
 # define NCURSES_HPP
 
-#include <iostream>
-#include <ncurses.h>
+# include <iostream>
+# include <ncurses.h>
+# include <IGraphicLib.hpp>
 
-class Ncurses : public IGraphicLib
+class NcursesLib : public IGraphicLib
 {
 	public:
 		/*
 		** CONSTRUCT & DESTRUCT
 		*/
-		Ncurses( int width, int height );
-		Ncurses( Ncurses const & );
-		virtual ~Ncurses( void );
+		NcursesLib( int width, int height );
+		NcursesLib( NcursesLib const & );
+		virtual ~NcursesLib( void );
 
 		/*
 		** OPERATOR
 		*/
-		Ncurses		operator=( Ncurses const & cpy );
+		NcursesLib		operator=( NcursesLib const & cpy );
 
 		/*
 		** GETTER & SETTER
 		*/
-		int				getWidth( void );
-		int				getHeight( void );
+		int				getWidth( void ) const;
+		int				getHeight( void ) const;
 
 		/*
 		** METHOD
 		*/
 		virtual void	drawSquare( int x, int y, int color );
 		virtual void	drawCircle( int x, int y, int color );
-		virtual void	drawTrangle( int x, int y, int color );
+		virtual void	drawTriangle( int x, int y, int color );
 
 	private:
-		Ncurses( void );
+		NcursesLib( void );
 
 		int		width;
 		int		height;

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ncurses.cpp                                        :+:      :+:    :+:   */
+/*   NcursesLib.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/04 14:25:54 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/04 16:42:10 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Ncurses.hpp>
+#include <NcursesLib.hpp>
 
-Ncurses::Ncurses( int width, int height ) : width(width), height(height)
+NcursesLib::NcursesLib( int width, int height ) : width(width), height(height)
 {
 	initscr( );
 	nodelay(stdscr, true);
@@ -24,12 +24,12 @@ Ncurses::Ncurses( int width, int height ) : width(width), height(height)
 	curs_set( 0 );
 }
 
-Ncurses::Ncurses( Ncurses const & cpy )
+NcursesLib::NcursesLib( NcursesLib const & cpy )
 {
 	*this = cpy;
 }
 
-Ncurses::~Ncurses( void )
+NcursesLib::~NcursesLib( void )
 {
 	return ;
 }
@@ -37,21 +37,21 @@ Ncurses::~Ncurses( void )
 /*
 ** OPERATOR
 */
-Ncurses		Ncurses::operator=( Ncurses const & cpy )
+NcursesLib		NcursesLib::operator=( NcursesLib const & cpy )
 {
-	this->width = this->getWidth();
-	this->height = this->getHeight();
+	this->width = cpy.getWidth();
+	this->height = cpy.getHeight();
 	return ( *this );
 }
 
 /*
 ** GETTER & SETTER
 */
-int		getWidth( void )
+int			NcursesLib::getWidth( void ) const
 {
 	return ( this->width );
 }
-int		getHeight( void )
+int			NcursesLib::getHeight( void ) const
 {
 	return ( this->height );
 }
@@ -59,9 +59,11 @@ int		getHeight( void )
 /*
 ** METHOD
 */
-void		Ncurses::drawSquare( int x, int y , int color)
+void		NcursesLib::drawSquare( int x, int y , int color)
 {
 	move(y, x);
+
+	(void)color;
 
 	init_pair(1, COLOR_YELLOW, COLOR_YELLOW );
 	attron( COLOR_PAIR(1) );
@@ -69,9 +71,11 @@ void		Ncurses::drawSquare( int x, int y , int color)
 	attroff( COLOR_PAIR(1) );
 }
 
-void		Ncurses::drawCircle( int x, int y , int color)
+void		NcursesLib::drawCircle( int x, int y , int color)
 {
 	move(y, x);
+
+	(void)color;
 
 	init_pair(1, COLOR_RED, COLOR_RED );
 	attron( COLOR_PAIR(1) );
@@ -79,9 +83,11 @@ void		Ncurses::drawCircle( int x, int y , int color)
 	attroff( COLOR_PAIR(1) );
 }
 
-void		Ncurses::drawTriangle( int x, int y , int color)
+void		NcursesLib::drawTriangle( int x, int y , int color)
 {
 	move(y, x);
+
+	(void)color;
 
 	init_pair(1, COLOR_YELLOW, COLOR_YELLOW );
 	attron( COLOR_PAIR(1) );

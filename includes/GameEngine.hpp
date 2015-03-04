@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 13:33:15 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/04 16:09:50 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ class GameEngine
 		/*
 		** GETTER & SETTER
 		*/
-		int		getWidthMap( void );
-		int		getHeightMap( void );
+		int		getWidthMap( void ) const;
+		int		getHeightMap( void ) const;
 		/*
 		** METHOD
 		*/

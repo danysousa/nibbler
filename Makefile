@@ -6,7 +6,7 @@
 #    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/03 13:29:20 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/04 14:05:24 by dsousa           ###   ########.fr        #
+#    Updated: 2015/03/04 16:25:12 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ OBJ			=	$(SRC:.cpp=.o)
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
+	@make -C lib/ncurses
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo ""
 	@echo "\033[33m"compilation of $(NAME) : "\033[32m"Success"\033[0m"
@@ -61,10 +62,12 @@ $(OBJ):			$(INC_SRC)
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 clean:
+	@make clean -C lib/ncurses
 	@/bin/rm -f $(OBJ)
 	@echo "\033[31m"Objects of $(NAME) : deleted"\033[0m"
 
 fclean:			clean
+	@make fclean -C lib/ncurses
 	@/bin/rm -f $(NAME)
 	@echo "\033[31m"$(NAME) : deleted"\033[0m"
 re:				fclean all
