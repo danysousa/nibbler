@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 11:22:36 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/04 11:24:13 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ CoreEngine		CoreEngine::operator=( CoreEngine const & cpy )
 /*
 ** METHOD
 */
-void			CoreEngine::loop(void)
+void			CoreEngine::loop( void )
 {
 	long double		tmp;
 
