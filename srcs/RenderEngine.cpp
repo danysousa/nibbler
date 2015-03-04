@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:06 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 15:21:08 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/04 17:29:38 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 /*
 ** CONSTRUCT & DESTRUCT
 */
-RenderEngine::RenderEngine( void ) : libName( "ncurse" )
+RenderEngine::RenderEngine( void ) : libPath( "lib/ncurses/NcursesLib.so" ), width( 20 ), height( 20 )
 {
+	this->loadLib();
 	return ;
 }
 
-RenderEngine::RenderEngine( std::string & libName ) : libName( libName )
+RenderEngine::RenderEngine( std::string & libPath, int width, int height ) : libPath( libPath ), width( width ), height( height )
 {
+	this->loadLib();
 	return ;
 }
 
@@ -40,7 +42,10 @@ RenderEngine::~RenderEngine( void )
 */
 RenderEngine	RenderEngine::operator=( RenderEngine const & cpy )
 {
-	this->libName = cpy.getLibName();
+	this->libPath = cpy.getLibPath();
+	this->width = cpy.getWidth();
+	this->height = cpy.getHeight();
+	this->lib = cpy.getLib();
 
 	return (*this);
 }
@@ -48,13 +53,55 @@ RenderEngine	RenderEngine::operator=( RenderEngine const & cpy )
 /*
 ** GETTER & SETTER
 */
-std::string		RenderEngine::getLibName( void ) const
+std::string		RenderEngine::getLibPath( void ) const
 {
-	return (this->libName);
+	return (this->libPath);
 }
 
-void			RenderEngine::setLibName( std::string const & lib )
+void			RenderEngine::setLibPath( std::string const & lib )
 {
-	(void)lib;
+	this->libPath = lib;
+	this->loadLib();
 	return ;
+}
+
+int				RenderEngine::getWidth( void ) const
+{
+	return ( this->width );
+}
+
+int				RenderEngine::getHeight( void ) const
+{
+	return ( this->height );
+}
+
+IGraphicLib *	RenderEngine::getLib( void ) const
+{
+	return ( this->lib );
+}
+
+/*
+** METHOD
+*/
+void			RenderEngine::loadLib( void )
+{
+	IGraphicLib		*(*f)(int, int);
+	void			*hndl;
+
+	hndl = dlopen(this->libPath.c_str(), RTLD_LAZY);
+
+	if ( hndl == NULL )
+	{
+		std::cout << dlerror() << std::endl;
+		std::cout << "ERRRRRRROOOOOR" << std::endl;
+	}
+
+	f = ( IGraphicLib *( * )( int, int ) )( dlsym( hndl, "maker" ) );
+	if ( f == NULL )
+	{
+		std::cout << dlerror() << std::endl;
+		std::cout << "ERRRRRRROOOOOR" << std::endl;
+	}
+
+	this->lib = f( 100, 100 );
 }

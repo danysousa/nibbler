@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:13 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 16:10:15 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/04 17:28:00 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define RENDERENGINE_HPP
 # include <iostream>
 # include <string>
+# include <IGraphicLib.hpp>
+# include <dlfcn.h>
 
 class RenderEngine
 {
@@ -22,7 +24,7 @@ class RenderEngine
 		** CONSTRUCT & DESTRUCT
 		*/
 		RenderEngine( void );
-		RenderEngine( std::string & libName );
+		RenderEngine( std::string & libName, int width, int height);
 		RenderEngine( RenderEngine const & cpy );
 		~RenderEngine( void );
 
@@ -34,16 +36,22 @@ class RenderEngine
 		/*
 		** GETTER & SETTER
 		*/
-		std::string		getLibName( void ) const;
-		void			setLibName( std::string const & lib );
+		std::string		getLibPath( void ) const;
+		void			setLibPath( std::string const & lib );
+		int				getWidth( void ) const;
+		int				getHeight( void ) const;
+		IGraphicLib		*getLib( void ) const;
 
 		/*
 		** METHOD
 		*/
+		void			loadLib( void );
 
 	private:
-		std::string		libName;
-		// IGraphicLib		*graphic;
+		std::string		libPath;
+		int				width;
+		int				height;
+		IGraphicLib		*lib;
 };
 
 #endif

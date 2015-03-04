@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 16:09:50 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/04 17:22:57 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <iostream>
 # include <Snake.hpp>
 # include <Food.hpp>
+# include <RenderEngine.hpp>
 
 class GameEngine
 {
@@ -36,19 +37,23 @@ class GameEngine
 		/*
 		** GETTER & SETTER
 		*/
-		int		getWidthMap( void ) const;
-		int		getHeightMap( void ) const;
+		int				getWidthMap( void ) const;
+		int				getHeightMap( void ) const;
+		RenderEngine *	getRender( void ) const;
+
+
 		/*
 		** METHOD
 		*/
-		void	updateAll( void );
-		void	renderAll( void );
+		void			updateAll( void );
+		void			renderAll( void );
 
 	private:
-		int		widthMap;
-		int		heightMap;
-		Snake	*snake;
-		Food	*food;
+		int				widthMap;
+		int				heightMap;
+		Snake			*snake;
+		Food			*food;
+		RenderEngine	*render;
 };
 
 #endif

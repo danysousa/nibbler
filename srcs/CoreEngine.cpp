@@ -6,14 +6,9 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 16:41:23 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/04 17:27:46 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <IGraphicLib.hpp>
-#include <dlfcn.h>
-
-
 
 #include <CoreEngine.hpp>
 #include <iostream>
@@ -53,36 +48,20 @@ CoreEngine		CoreEngine::operator=( CoreEngine const & cpy )
 void			CoreEngine::loop( void )
 {
 	long double		tmp;
-	IGraphicLib		*(*f)(int, int);
-	IGraphicLib		*lib;
-	void			*hndl = dlopen("lib/ncurses/NcursesLib.so", RTLD_LAZY);
-
-	if ( hndl == NULL )
-	{
-		std::cout << dlerror() << std::endl;
-		std::cout << "ERRRRRRROOOOOR" << std::endl;
-	}
-
-	f = ( IGraphicLib *(*)(int, int) )(dlsym(hndl, "maker"));
-	if ( f == NULL )
-	{
-		std::cout << dlerror() << std::endl;
-		std::cout << "ERRRRRRROOOOOR" << std::endl;
-	}
-	lib = f( 100, 100 );
-
 
 	while ( this->start )
 	{
 		this->timeStart = clock();
 
 		this->gameEngine->updateAll();
-	lib->drawSquare(0, 0, 0);
+		this->gameEngine->getRender()->getLib()->drawSquare(20, 20, 0);
 
 		this->timeEnd = clock();
 		tmp = (static_cast<long double>(this->timeEnd) - static_cast<long double>(this->timeStart)) / CLOCKS_PER_SEC;
 		if ( tmp < 0.04 )
 			usleep( (0.4 - tmp ) * 100000 );
+
+		this->gameEngine->getRender()->getLib()->refresh();
 	}
 
 	return ;
