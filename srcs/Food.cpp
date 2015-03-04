@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BodyBlock.cpp                                      :+:      :+:    :+:   */
+/*   Food.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 16:11:28 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 17:12:19 by nschilli         ###   ########.fr       */
+/*   Created: 2015/03/03 17:15:44 by nschilli          #+#    #+#             */
+/*   Updated: 2015/03/04 10:54:51 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <BodyBlock.hpp>
+#include <Food.hpp>
 
-/*
-** CONSTRUCT & DESTRUCT
-*/
-BodyBlock::BodyBlock( void ) : x( 0 ), y( 0 )
+Food::Food( void )
 {
-	return ;
+	this->x = 0;
+	this->y = 0;
+	this->color = 0;
 }
 
-BodyBlock::BodyBlock( int x, int y, int color ) : x( x ), y( y ), color( color )
+Food::Food( int width, int height )
 {
-	return ;
+	this->x = rand() % width;
+	this->y = rand() % height;
+	this->color = rand() % 255;
 }
 
-BodyBlock::BodyBlock( BodyBlock const & cpy )
+Food::Food( Food const & cpy )
 {
 	*this = cpy;
-	return ;
 }
 
-BodyBlock::~BodyBlock( void )
+Food::~Food( void )
 {
 	return ;
 }
@@ -39,38 +39,42 @@ BodyBlock::~BodyBlock( void )
 /*
 ** OPERATOR
 */
-BodyBlock BodyBlock::operator=( BodyBlock const & cpy )
+Food Food::operator=( Food const & cpy )
 {
 	this->x = cpy.getX();
 	this->y = cpy.getY();
-	this->color = cpy.getColor();
-
+	this->y = cpy.getColor();
 	return ( *this );
-}
-
-/*
-** METHOD
-*/
-
-void		BodyBlock::render( void )
-{
-	return ;
 }
 
 /*
 ** GETTER & SETTER
 */
-int		BodyBlock::getX( void ) const
+int		Food::getX( void ) const
 {
 	return ( this->x );
 }
 
-int		BodyBlock::getY( void ) const
+int		Food::getY( void ) const
 {
 	return ( this->y );
 }
 
-int		BodyBlock::getColor( void ) const
+int		Food::getColor( void ) const
 {
 	return ( this->color );
 }
+
+/*
+** METHOD
+*/
+void	Food::update( void )
+{
+	return ;
+}
+
+void	Food::render( void )
+{
+	return ;
+}
+
