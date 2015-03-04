@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 10:37:40 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/04 13:36:26 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,24 @@ GameEngine::~GameEngine( void )
 */
 GameEngine		GameEngine::operator=( GameEngine const & cpy )
 {
-	return ( cpy );
+	this->widthMap = cpy.getWidthMap();
+	this->widthMap = cpy.getHeightMap();
+	return ( *this );
 }
+
+/*
+** GETTER & SETTER
+*/
+int		GameEngine::getWidthMap( void )
+{
+	return ( this->widthMap );
+}
+
+int		GameEngine::getHeightMap( void )
+{
+	return ( this->heightMap );
+}
+
 
 /*
 ** METHOD
@@ -54,3 +70,4 @@ void		GameEngine::updateAll( void )
 		return ;
 	return ;
 }
+

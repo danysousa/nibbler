@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   maker.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 13:23:20 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 13:36:44 by nschilli         ###   ########.fr       */
+/*   Created: 2015/03/04 13:18:14 by nschilli          #+#    #+#             */
+/*   Updated: 2015/03/04 14:18:45 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include <CoreEngine.hpp>
+#include "Ncurses.hpp"
 
-static void		ft_usage( void )
+Ncurses		*maker( int width, int height )
 {
-	std::cout << "Usage : ./nibbler [width] [height]" << std::endl;
+	Ncurses *n = new Ncurses(width, height);
 
-	return ;
-}
-
-int main( void )
-{
-	srand(time(NULL));
-	ft_usage();
-	CoreEngine	core = CoreEngine();
-	core.loop();
-
-	return 0;
+	return ( n );
 }
