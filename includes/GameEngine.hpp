@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 16:40:10 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/04 10:37:11 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GAMEENGINE_HPP
 # include <iostream>
 # include <Snake.hpp>
+# include <Food.hpp>
 
 class GameEngine
 {
@@ -42,6 +43,7 @@ class GameEngine
 		int		widthMap;
 		int		heightMap;
 		Snake	*snake;
+		Food	*food;
 };
 
 #endif
