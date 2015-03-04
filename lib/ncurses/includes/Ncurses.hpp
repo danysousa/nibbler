@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/04 14:11:42 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/04 14:29:16 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 #include <ncurses.h>
 
-class Ncurses
+class Ncurses : public IGraphicLib
 {
 	public:
 		/*
@@ -35,15 +35,15 @@ class Ncurses
 		/*
 		** GETTER & SETTER
 		*/
-		int			getWidth( void );
-		int			getHeight( void );
+		int				getWidth( void );
+		int				getHeight( void );
 
 		/*
 		** METHOD
 		*/
-		void		drawSquare( int x, int y, int color );
-		void		drawCircle( int x, int y, int color );
-		void		drawTrangle( int x, int y, int color );
+		virtual void	drawSquare( int x, int y, int color );
+		virtual void	drawCircle( int x, int y, int color );
+		virtual void	drawTrangle( int x, int y, int color );
 
 	private:
 		Ncurses( void );
