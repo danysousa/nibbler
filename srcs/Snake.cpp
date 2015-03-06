@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/06 11:46:33 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 13:57:57 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,18 @@ int		Snake::getSize( void ) const
 /*
 ** METHOD
 */
-void	Snake::update( void )
+void	Snake::update( int width, int height )
 {
+	(void)height;
+	std::vector<BodyBlock *>::iterator ite = this->body.end();
+
+	for ( std::vector<BodyBlock *>::iterator it = this->body.begin(); it != ite; ++it )
+	{
+		if ( (*it)->getX() != width )
+			(*it)->setX( 1 );
+		else
+			(*it)->setX( 0 );
+	}
 	return ;
 }
 
@@ -82,8 +92,6 @@ void	Snake::render( IGraphicLib *lib )
 
 	for ( std::vector<BodyBlock *>::iterator it = this->body.begin(); it != ite; ++it )
 	{
-		// std::cout << "x = " << (*it)->getX() << std::endl;
-		// std::cout << "y = " << (*it)->getY() << std::endl;
 		lib->drawSquare( (*it)->getX(), (*it)->getY(), 0 );
 	}
 	return ;

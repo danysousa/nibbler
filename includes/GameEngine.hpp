@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/06 10:53:48 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 13:38:56 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ class GameEngine
 		*/
 		void			updateAll( void );
 		void			renderAll( void );
+		void			cleanScreen( IGraphicLib *lib );
 
 	private:
 		int				widthMap;

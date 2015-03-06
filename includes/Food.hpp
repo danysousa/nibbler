@@ -6,14 +6,13 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:07:37 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/06 10:59:30 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 13:54:39 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FOOD_HPP
 # define FOOD_HPP
 # include <AGameObject.hpp>
-# include <IGraphicLib.hpp>
 # include <iostream>
 
 class Food : public AGameObject
@@ -42,7 +41,7 @@ class Food : public AGameObject
 		/*
 		** METHOD
 		*/
-		virtual void	update( void );
+		virtual void	update( int width, int height );
 		virtual void	render( IGraphicLib *lib );
 
 	private:

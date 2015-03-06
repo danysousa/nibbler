@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:15:44 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/06 11:02:18 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 13:55:05 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,10 @@ int		Food::getColor( void ) const
 /*
 ** METHOD
 */
-void	Food::update( void )
+void	Food::update( int width, int height )
 {
+	(void)width;
+	(void)height;
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 16:11:28 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 17:12:19 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 13:42:15 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,17 @@ int		BodyBlock::getY( void ) const
 int		BodyBlock::getColor( void ) const
 {
 	return ( this->color );
+}
+
+void	BodyBlock::setX( int x )
+{
+	if ( x != 0)
+		this->x = this->x + x;
+	else
+		this->x = 0;
+}
+
+void	BodyBlock::setY( int y )
+{
+		this->y = this->y + y;
 }
