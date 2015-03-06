@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 17:22:57 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/06 10:53:48 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ class GameEngine
 		*/
 		int				getWidthMap( void ) const;
 		int				getHeightMap( void ) const;
+		Snake *			getSnake( void ) const;
+		Food *			getFood( void ) const;
 		RenderEngine *	getRender( void ) const;
-
 
 		/*
 		** METHOD

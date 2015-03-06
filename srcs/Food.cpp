@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:15:44 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/04 10:54:51 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 11:02:18 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,9 @@ void	Food::update( void )
 	return ;
 }
 
-void	Food::render( void )
+void	Food::render( IGraphicLib *lib )
 {
+	(void)lib;
 	return ;
 }
 

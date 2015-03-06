@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/06 10:16:25 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 11:47:13 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ void			CoreEngine::loop( void )
 		this->timeStart = clock();
 
 		this->gameEngine->updateAll();
-		this->gameEngine->getRender()->getLib()->drawSquare(20, 20, 0);
+		this->gameEngine->getSnake()->render( this->gameEngine->getRender()->getLib() );
+		// this->gameEngine->getRender()->getLib()->drawSquare(20, 20, 0);
+
 
 		this->timeEnd = clock();
 		tmp = (static_cast<long double>(this->timeEnd) - static_cast<long double>(this->timeStart)) / CLOCKS_PER_SEC;

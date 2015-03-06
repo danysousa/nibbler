@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 17:27:04 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/06 11:03:50 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,16 @@ int				GameEngine::getWidthMap( void ) const
 int				GameEngine::getHeightMap( void ) const
 {
 	return ( this->heightMap );
+}
+
+Snake *			GameEngine::getSnake( void ) const
+{
+	return ( this->snake );
+}
+
+Food *			GameEngine::getFood( void ) const
+{
+	return ( this->food );
 }
 
 RenderEngine *	GameEngine::getRender( void ) const
