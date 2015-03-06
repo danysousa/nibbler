@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoreEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 17:27:46 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/06 10:16:25 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 ** CONSTRUCT & DESTRUCT
 */
 CoreEngine::CoreEngine( void ) : gameEngine( new GameEngine ), start( 1 )
+{
+	return ;
+}
+
+CoreEngine::CoreEngine( int width, int height ) : gameEngine( new GameEngine( width, height ) ), start( 1 )
 {
 	return ;
 }

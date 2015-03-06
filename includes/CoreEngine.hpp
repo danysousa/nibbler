@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoreEngine.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:59:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 17:24:33 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/06 10:16:04 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class CoreEngine
 		** CONSTRUCT & DESTRUCT
 		*/
 		CoreEngine( void );
+		CoreEngine( int width, int height );
 		CoreEngine( CoreEngine const & cpy );
 		~CoreEngine( void );
 
