@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 17:27:04 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/06 13:58:10 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,16 @@ int				GameEngine::getHeightMap( void ) const
 	return ( this->heightMap );
 }
 
+Snake *			GameEngine::getSnake( void ) const
+{
+	return ( this->snake );
+}
+
+Food *			GameEngine::getFood( void ) const
+{
+	return ( this->food );
+}
+
 RenderEngine *	GameEngine::getRender( void ) const
 {
 	return ( this->render );
@@ -78,3 +88,20 @@ void			GameEngine::updateAll( void )
 	return ;
 }
 
+void			GameEngine::renderAll( void )
+{
+	if ( this->widthMap || this->heightMap )
+		return ;
+	return ;
+}
+
+void			GameEngine::cleanScreen( IGraphicLib *lib )
+{
+	for ( int x = 0; x <= this->widthMap; x++)
+	{
+		for ( int y = 0; y <= this->heightMap; y++ )
+		{
+			lib->drawEmpty(x, y, 0);
+		}
+	}
+}

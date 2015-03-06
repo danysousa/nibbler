@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:23:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 17:09:49 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 13:51:38 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ class Snake : public AGameObject
 		/*
 		** METHOD
 		*/
-		virtual void	update( void );
-		virtual void	render( void );
+		virtual void	update( int width, int height );
+		virtual void	render( IGraphicLib *lib );
 
 	private:
 		int								size;

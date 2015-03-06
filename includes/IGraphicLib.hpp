@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   IGraphicLib.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:24:32 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/04 16:58:13 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/06 13:36:55 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class IGraphicLib
 		virtual void		drawCircle( int x, int y, int color ) = 0;
 		virtual void		drawSquare( int x, int y, int color ) = 0;
 		virtual void		drawTriangle( int x, int y, int color ) = 0;
+		virtual void		drawEmpty( int x, int y, int color ) = 0;
 		virtual void		refresh( void ) = 0;
 
 };

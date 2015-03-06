@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 17:14:05 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 13:57:57 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ Snake::Snake( void ) : size( 4 )
 Snake::Snake( int x, int y ) : size( 4 )
 {
 	this->body.push_back( new BodyBlock( x, y, 0 ) );
-	this->body.push_back( new BodyBlock( x - 1, y, 0 ) );
-	this->body.push_back( new BodyBlock( x - 2, y, 0 ) );
-	this->body.push_back( new BodyBlock( x - 3, y, 0 ) );
+	this->body.push_back( new BodyBlock( x + 1, y, 0 ) );
+	this->body.push_back( new BodyBlock( x + 2, y, 0 ) );
+	this->body.push_back( new BodyBlock( x + 3, y, 0 ) );
 
 	return ;
 }
@@ -71,12 +71,28 @@ int		Snake::getSize( void ) const
 /*
 ** METHOD
 */
-void	Snake::update( void )
+void	Snake::update( int width, int height )
 {
+	(void)height;
+	std::vector<BodyBlock *>::iterator ite = this->body.end();
+
+	for ( std::vector<BodyBlock *>::iterator it = this->body.begin(); it != ite; ++it )
+	{
+		if ( (*it)->getX() != width )
+			(*it)->setX( 1 );
+		else
+			(*it)->setX( 0 );
+	}
 	return ;
 }
 
-void	Snake::render( void )
+void	Snake::render( IGraphicLib *lib )
 {
+	std::vector<BodyBlock *>::iterator ite = this->body.end();
+
+	for ( std::vector<BodyBlock *>::iterator it = this->body.begin(); it != ite; ++it )
+	{
+		lib->drawSquare( (*it)->getX(), (*it)->getY(), 0 );
+	}
 	return ;
 }
