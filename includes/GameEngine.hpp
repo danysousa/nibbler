@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/06 13:38:56 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 14:53:46 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ class GameEngine
 	private:
 		int				widthMap;
 		int				heightMap;
+		int				input;
 		Snake			*snake;
 		Food			*food;
 		RenderEngine	*render;

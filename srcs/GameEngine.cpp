@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/06 13:58:10 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/06 14:53:58 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,11 @@ RenderEngine *	GameEngine::getRender( void ) const
 */
 void			GameEngine::updateAll( void )
 {
-	if ( this->widthMap || this->heightMap )
-		return ;
+	this->input = this->render->getLib()->keyPressed();
+	if ( this->input == 27 )
+		exit( 0 );
+	this->snake->update( this->widthMap, this->heightMap );
+	this->snake->render( this->render->getLib() );
 	return ;
 }
 
