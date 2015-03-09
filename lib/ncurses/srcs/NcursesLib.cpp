@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/09 11:37:25 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 15:11:21 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,21 @@ void		NcursesLib::drawEmpty( int x, int y , int color )
 
 int		NcursesLib::keyPressed( void )
 {
-	if ( getch() == 27 )
+	int		key = getch();
+
+	if ( key == 27 )
 	{
 		endwin();
 		exit(0);
 	}
+	if ( key == KEY_LEFT )
+		return ( 20 );
+	if ( key == KEY_RIGHT )
+		return ( 40 );
+	if ( key == KEY_UP )
+		return ( 60 );
+	if ( key == KEY_DOWN )
+		return (80);
 	return ( getch() );
 }
 

@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 12:27:13 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 15:42:02 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,15 @@ RenderEngine *	GameEngine::getRender( void ) const
 void			GameEngine::updateAll( void )
 {
 	this->input = this->render->getLib()->keyPressed();
-	if ( this->input == 27 )
-		exit( 0 );
+
+	if ( this->input == 20 && this->snake->getDirection().compare("right") != 0 )
+		this->snake->setDirection("left");
+	if ( this->input == 40 && this->snake->getDirection().compare("left") != 0 )
+		this->snake->setDirection("right");
+	if ( this->input == 60 && this->snake->getDirection().compare("down") != 0 )
+		this->snake->setDirection("up");
+	if ( this->input == 80 && this->snake->getDirection().compare("up") != 0 )
+		this->snake->setDirection("down");
 	this->snake->update( this->widthMap, this->heightMap );
 	this->snake->render( this->render->getLib() );
 	return ;
