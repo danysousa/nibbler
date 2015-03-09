@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/06 13:57:57 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 14:28:43 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** CONSTRUCT & DESTRUCT
 */
-Snake::Snake( void ) : size( 4 )
+Snake::Snake( void ) : size( 4 ), direction( "left" )
 {
 	this->body.push_back( new BodyBlock( 3, 0, 0 ) );
 	this->body.push_back( new BodyBlock( 2, 0, 0 ) );
@@ -25,7 +25,7 @@ Snake::Snake( void ) : size( 4 )
 	return ;
 }
 
-Snake::Snake( int x, int y ) : size( 4 )
+Snake::Snake( int x, int y, std::string direction ) : size( 4 ), direction( direction )
 {
 	this->body.push_back( new BodyBlock( x, y, 0 ) );
 	this->body.push_back( new BodyBlock( x + 1, y, 0 ) );
@@ -52,6 +52,7 @@ Snake Snake::operator=( Snake const & cpy )
 {
 	this->body = cpy.getBody();
 	this->size = cpy.getSize();
+	this->direction = cpy.getDirection();
 	return ( *this );
 }
 
@@ -63,9 +64,24 @@ std::vector<BodyBlock *>	Snake::getBody( void ) const
 	return ( this->body );
 }
 
-int		Snake::getSize( void ) const
+int							Snake::getSize( void ) const
 {
 	return ( this->size );
+}
+
+std::string					Snake::getDirection( void ) const
+{
+	return ( this->direction );
+}
+
+void						Snake::setSize( int size )
+{
+	this->size = this->size + size;
+}
+
+void						Snake::setDirection( std::string direction )
+{
+	this->direction = direction;
 }
 
 /*
@@ -75,15 +91,32 @@ void	Snake::update( int width, int height )
 {
 	(void)height;
 	std::vector<BodyBlock *>::iterator ite = this->body.end();
+	std::vector<BodyBlock *>::iterator it = this->body.begin();
+	std::vector<BodyBlock *>::iterator tmp = it;
 
-	for ( std::vector<BodyBlock *>::iterator it = this->body.begin(); it != ite; ++it )
+	for ( it = this->body.begin(); it != ite; ++it )
 	{
-		if ( (*it)->getX() != width )
-			(*it)->setX( 1 );
-		else
-			(*it)->setX( 0 );
+		if ( this->direction.compare( "left" ) == 0 )
+			left( it, &tmp, width );
 	}
 	return ;
+}
+
+void			Snake::left( std::vector<BodyBlock *>::iterator it, std::vector<BodyBlock *>::iterator *tmp, int width )
+{
+	if ( it == this->body.begin() )
+	{
+		if ( (*it)->getX() != 0 )
+			(*it)->mooveX( -1 );
+		else 
+			(*it)->setX( width );
+	}
+	else
+	{
+		if ( (*(*tmp))->getX() + 1 <= width )
+			(*it)->setX( (*(*tmp))->getX() + 1 );
+		*tmp = it;
+	}
 }
 
 void	Snake::render( IGraphicLib *lib )

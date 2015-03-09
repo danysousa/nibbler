@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/06 13:58:51 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 11:37:25 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 NcursesLib::NcursesLib( int width, int height ) : width(width), height(height)
 {
 	initscr();
-	start_color();
-	noecho();
-	curs_set( false );
+	cbreak();
 	this->win = newwin(this->height, this->width, 0, 0);
-	nodelay( this->win, true );
-	keypad( this->win, true );
-	wrefresh( win );
+	nodelay( stdscr, true );
+	keypad( stdscr, true );
+	noecho();
+	start_color();
+	curs_set( false );
+
+	wrefresh( this->win );
 }
 
 NcursesLib::NcursesLib( NcursesLib const & cpy )
@@ -97,6 +99,16 @@ void		NcursesLib::drawEmpty( int x, int y , int color )
 	attron( COLOR_PAIR(1) );
 	mvwprintw( this->win, y, x, " " );
 	attroff( COLOR_PAIR(1) );
+}
+
+int		NcursesLib::keyPressed( void )
+{
+	if ( getch() == 27 )
+	{
+		endwin();
+		exit(0);
+	}
+	return ( getch() );
 }
 
 void		NcursesLib::refresh( void )
