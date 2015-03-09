@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/06 13:57:57 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 11:06:31 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@ int		Snake::getSize( void ) const
 	return ( this->size );
 }
 
+int		Snake::getDirection( void ) const
+{
+	return ( this->direction );
+}
 /*
 ** METHOD
 */

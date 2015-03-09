@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:23:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/06 13:51:38 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 11:01:47 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Snake : public AGameObject
 		*/
 		std::vector<BodyBlock *>	getBody( void ) const;
 		int							getSize( void ) const;
+		int							getDirection( void ) const;
 
 		/*
 		** METHOD
@@ -47,6 +48,7 @@ class Snake : public AGameObject
 
 	private:
 		int								size;
+		int								direction;
 		std::vector<BodyBlock *>		body;
 };
 
