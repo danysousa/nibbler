@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 12:27:13 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 17:12:16 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** CONSTRUCT & DESTRUCT
 */
-GameEngine::GameEngine( void ) : widthMap( 100 ), heightMap( 50 ), snake( new Snake() ), food( new Food() ), render( new RenderEngine() )
+GameEngine::GameEngine( void ) : widthMap( 100 ), heightMap( 50 ), snake( new Snake() ), food( new Food(100, 50) ), render( new RenderEngine() )
 {
 	return ;
 }
@@ -86,15 +86,15 @@ void			GameEngine::updateAll( void )
 	this->input = this->render->getLib()->keyPressed();
 	if ( this->input == 27 )
 		exit( 0 );
+
 	this->snake->update( this->widthMap, this->heightMap );
-	this->snake->render( this->render->getLib() );
 	return ;
 }
 
 void			GameEngine::renderAll( void )
 {
-	if ( this->widthMap || this->heightMap )
-		return ;
+	this->snake->render( this->render->getLib() );
+	this->food->render( this->render->getLib() );
 	return ;
 }
 

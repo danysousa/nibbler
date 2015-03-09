@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Food.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:15:44 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/06 13:55:05 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 17:12:09 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 Food::Food( void )
 {
-	this->x = 0;
-	this->y = 0;
+	this->x = 10;
+	this->y = 10;
 	this->color = 0;
 }
 
 Food::Food( int width, int height )
 {
-	this->x = rand() % width;
-	this->y = rand() % height;
-	this->color = rand() % 255;
+	this->x = (rand() % width) + 1;
+	this->y = (rand() % height) + 1;
+	this->color = 0;
 }
 
 Food::Food( Food const & cpy )
@@ -39,7 +39,7 @@ Food::~Food( void )
 /*
 ** OPERATOR
 */
-Food Food::operator=( Food const & cpy )
+Food	Food::operator=( Food const & cpy )
 {
 	this->x = cpy.getX();
 	this->y = cpy.getY();
@@ -77,7 +77,7 @@ void	Food::update( int width, int height )
 
 void	Food::render( IGraphicLib *lib )
 {
-	(void)lib;
+	lib->drawSquare( this->x, this->y, 0 );
 	return ;
 }
 

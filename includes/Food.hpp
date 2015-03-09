@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Food.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:07:37 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/06 13:54:39 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 15:05:29 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FOOD_HPP
 # include <AGameObject.hpp>
 # include <iostream>
+# include <Snake.hpp>
 
 class Food : public AGameObject
 {

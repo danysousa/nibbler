@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Snake.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 14:28:43 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 17:11:54 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void			Snake::left( std::vector<BodyBlock *>::iterator it, std::vector<BodyBlock
 	{
 		if ( (*it)->getX() != 0 )
 			(*it)->mooveX( -1 );
-		else 
+		else
 			(*it)->setX( width );
 	}
 	else
@@ -125,7 +125,7 @@ void	Snake::render( IGraphicLib *lib )
 
 	for ( std::vector<BodyBlock *>::iterator it = this->body.begin(); it != ite; ++it )
 	{
-		lib->drawSquare( (*it)->getX(), (*it)->getY(), 0 );
+		lib->drawCircle( (*it)->getX(), (*it)->getY(), 0 );
 	}
 	return ;
 }
