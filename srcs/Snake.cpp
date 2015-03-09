@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 14:28:43 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/09 17:06:25 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,20 +89,26 @@ void						Snake::setDirection( std::string direction )
 */
 void	Snake::update( int width, int height )
 {
-	(void)height;
-	std::vector<BodyBlock *>::iterator ite = this->body.end();
 	std::vector<BodyBlock *>::iterator it = this->body.begin();
-	std::vector<BodyBlock *>::iterator tmp = it;
 
-	for ( it = this->body.begin(); it != ite; ++it )
+	for (int i = this->size; i != 0; --i)
 	{
-		if ( this->direction.compare( "left" ) == 0 )
-			left( it, &tmp, width );
+		this->body[i]->setX( this->body[i - 1]->getX() );
+		this->body[i]->setY( this->body[i - 1]->getY() );
 	}
+
+	if ( this->direction.compare( "left" ) == 0 )
+		left( it, width );
+	if ( this->direction.compare( "right" ) == 0 )
+		right( it, width );
+	if ( this->direction.compare( "up" ) == 0 )
+		up( it, height );
+	if ( this->direction.compare( "down" ) == 0 )
+		down( it, height );
 	return ;
 }
 
-void			Snake::left( std::vector<BodyBlock *>::iterator it, std::vector<BodyBlock *>::iterator *tmp, int width )
+void			Snake::left( std::vector<BodyBlock *>::iterator it, int width )
 {
 	if ( it == this->body.begin() )
 	{
@@ -111,11 +117,38 @@ void			Snake::left( std::vector<BodyBlock *>::iterator it, std::vector<BodyBlock
 		else 
 			(*it)->setX( width );
 	}
-	else
+}
+
+void			Snake::right( std::vector<BodyBlock *>::iterator it, int width )
+{
+	if ( it == this->body.begin() )
 	{
-		if ( (*(*tmp))->getX() + 1 <= width )
-			(*it)->setX( (*(*tmp))->getX() + 1 );
-		*tmp = it;
+		if ( (*it)->getX() != width )
+			(*it)->mooveX( 1 );
+		else 
+			(*it)->setX( 0 );
+	}
+}
+
+void			Snake::up( std::vector<BodyBlock *>::iterator it, int height )
+{
+	if ( it == this->body.begin() )
+	{
+		if ( (*it)->getY() != 0 )
+			(*it)->mooveY( -1 );
+		else 
+			(*it)->setY( height );
+	}
+}
+
+void			Snake::down( std::vector<BodyBlock *>::iterator it, int height )
+{
+	if ( it == this->body.begin() )
+	{
+		if ( (*it)->getY() != height )
+			(*it)->mooveY( 1 );
+		else 
+			(*it)->setY( 0 );
 	}
 }
 
