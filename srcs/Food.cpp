@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:15:44 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/09 17:12:09 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/09 18:27:17 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,16 @@ void	Food::render( IGraphicLib *lib )
 	return ;
 }
 
+void	Food::changePos( Snake *snake, int width, int height )
+{
+	this->x = rand() % width;
+	this->y = rand() % height;
+
+	for (int i = snake->getSize(); i >= 0; --i)
+	{
+		while ( snake->getBody()[0]->getX() == this->x )
+			this->x = rand() % width;
+		while ( snake->getBody()[0]->getY() == this->y )
+			this->x = rand() % height;
+	}
+}

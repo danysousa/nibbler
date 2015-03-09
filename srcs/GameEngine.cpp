@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 17:12:16 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/09 17:58:56 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,20 @@ void			GameEngine::updateAll( void )
 	this->input = this->render->getLib()->keyPressed();
 	if ( this->input == 27 )
 		exit( 0 );
+	if ( this->input == 20 && this->snake->getDirection().compare("right") != 0 )
+		this->snake->setDirection("left");
+	if ( this->input == 40 && this->snake->getDirection().compare("left") != 0 )
+		this->snake->setDirection("right");
+	if ( this->input == 60 && this->snake->getDirection().compare("down") != 0 )
+		this->snake->setDirection("up");
+	if ( this->input == 80 && this->snake->getDirection().compare("up") != 0 )
+		this->snake->setDirection("down");
+
+	if ( this->snake->getBody()[0]->getX() == this->food->getX() && this->snake->getBody()[0]->getY() == this->food->getY() )
+	{
+		this->snake->addBodyBlock();
+		this->food->changePos( this->snake, this->widthMap, this->heightMap );
+	}
 
 	this->snake->update( this->widthMap, this->heightMap );
 	return ;
