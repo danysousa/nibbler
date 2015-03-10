@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:15:44 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/09 18:27:17 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 11:59:33 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,10 @@ void	Food::changePos( Snake *snake, int width, int height )
 
 	for (int i = snake->getSize(); i >= 0; --i)
 	{
-		while ( snake->getBody()[0]->getX() == this->x )
-			this->x = rand() % width;
-		while ( snake->getBody()[0]->getY() == this->y )
-			this->x = rand() % height;
+		if ( snake->getBody()[0]->getX() == this->x || snake->getBody()[0]->getY() == this->y )
+		{
+			this->changePos( snake, width, height );
+			return ;
+		}
 	}
 }
