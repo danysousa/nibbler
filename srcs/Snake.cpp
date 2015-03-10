@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/10 12:57:50 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 13:49:56 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,14 +111,14 @@ void						Snake::update( int width, int height )
 	else if ( this->direction.compare( "down" ) == 0 )
 		down( height );
 	if ( this->isDead( width, height ) )
-		exit( 0 );
+		while( 1 );
 	return ;
 }
 
 bool						Snake::isDead( int width, int height ) const
 {
-	if ( this->body[0]->getX() == 0 ||  this->body[0]->getX() == width
-		|| this->body[0]->getY() == 0 ||  this->body[0]->getY() == height )
+	if ( this->body[0]->getX() == 0 ||  this->body[0]->getX() == width - 1
+		|| this->body[0]->getY() == 0 ||  this->body[0]->getY() == height - 1 )
 		return ( true );
 
 	for (int i = 1; i < this->size; ++i)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoreEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/10 12:50:21 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/10 14:53:21 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,18 @@ void			CoreEngine::loop( void )
 	{
 		this->timeStart = clock();
 
-		this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
-		this->gameEngine->updateAll();
-		this->gameEngine->renderAll();
+		this->gameEngine->getRender()->getLib()->drawSquare(1, 1, 1);
+
+		// this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
+		// this->gameEngine->updateAll();
+		// this->gameEngine->renderAll();
 
 		this->timeEnd = clock();
 		tmp = (static_cast<long double>(this->timeEnd) - static_cast<long double>(this->timeStart)) / CLOCKS_PER_SEC;
 		if ( tmp < 0.04 )
 			usleep( (0.4 - tmp ) * 100000 );
 
-		this->gameEngine->getRender()->getLib()->refresh();
+		// this->gameEngine->getRender()->getLib()->refresh();
 	}
 
 	return ;

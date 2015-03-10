@@ -5,44 +5,36 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/03/03 13:29:20 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/10 15:05:47 by dsousa           ###   ########.fr        #
+#    Created: 2015/03/04 14:25:16 by dsousa            #+#    #+#              #
+#    Updated: 2015/03/10 15:12:48 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 export	CC	=	g++
 
-NAME		=	nibbler
+NAME		=	OpenglLib.so
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 
-INC			+=	-I includes
+INC			=	-I includes -I ../../includes/\
+				-I ~/.brew/Cellar/glfw3/3.1/include/
 
 INC_DIR		=	includes/
 
-INC_FILES	=	CoreEngine.hpp\
-				AGameObject.hpp\
-				GameEngine.hpp\
-				Snake.hpp\
-				BodyBlock.hpp\
-				RenderEngine.hpp\
-				Food.hpp\
-				IGraphicLib.hpp
+INC_FILES	=	OpenglLib.hpp
 
 INC_SRC		=	$(addprefix $(INC_DIR), $(INC_FILES))
 
+INC_SRC		+=	../../includes/IGraphicLib.hpp
+
 SRC_DIR		=	srcs/
 
-FILES		=	main.cpp\
-				CoreEngine.cpp\
-				AGameObject.cpp\
-				GameEngine.cpp\
-				Snake.cpp\
-				BodyBlock.cpp\
-				RenderEngine.cpp\
-				Food.cpp\
+FILES		=	OpenglLib.cpp\
+				maker.cpp
 
 SRC			=	$(addprefix $(SRC_DIR), $(FILES))
+
+SRC			+=	../../srcs/IGraphicLib.cpp
 
 OBJ			=	$(SRC:.cpp=.o)
 
@@ -50,28 +42,27 @@ OBJ			=	$(SRC:.cpp=.o)
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
-	@make -C lib/ncurses
-	@make -C lib/opengl
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	@$(CC) $(CFLAGS) -shared -o $(NAME) $(OBJ) -L ~/.brew/Cellar/glfw3/3.1/lib/ -lglfw3 -framework OpenGL
 	@echo ""
 	@echo "\033[33m"compilation of $(NAME) : "\033[32m"Success"\033[0m"
 
 $(OBJ):			$(INC_SRC)
 
+install:
+	@brew update
+	@~/.brew/bin/brew install homebrew/versions/glfw3
+
 %.o:			%.cpp $(INC_SRC)
 	@echo -n .
-	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+	@$(CC) $(CFLAGS) -c -fPIC $< -o $@ $(INC)
 
 clean:
-	@make clean -C lib/ncurses
 	@/bin/rm -f $(OBJ)
 	@echo "\033[31m"Objects of $(NAME) : deleted"\033[0m"
 
 fclean:			clean
-	@make fclean -C lib/ncurses
 	@/bin/rm -f $(NAME)
 	@echo "\033[31m"$(NAME) : deleted"\033[0m"
 re:				fclean all
 
 .PHONY:			all clean fclean re
-
