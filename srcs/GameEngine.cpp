@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 17:58:56 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 12:59:36 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,11 +114,34 @@ void			GameEngine::renderAll( void )
 
 void			GameEngine::cleanScreen( IGraphicLib *lib )
 {
-	for ( int x = 0; x <= this->widthMap; x++)
+	for ( int x = 1; x < this->widthMap - 1; x++)
 	{
-		for ( int y = 0; y <= this->heightMap; y++ )
+		for ( int y = 1; y < this->heightMap - 1; y++ )
 		{
 			lib->drawEmpty(x, y, 0);
 		}
+	}
+}
+
+void			GameEngine::wall( IGraphicLib *lib )
+{
+	for ( int x = 0; x < this->widthMap; x++ )
+	{
+		lib->drawBlock( x, 0, 0 );
+	}
+
+	for ( int x = 0; x < this->widthMap; x++ )
+	{
+		lib->drawBlock( x, this->heightMap - 1, 0 );
+	}
+
+	for ( int y = 0; y < this->heightMap; y++ )
+	{
+		lib->drawBlock( 0, y, 0) ;
+	}
+
+	for ( int y = 0; y < this->heightMap; y++ )
+	{
+		lib->drawBlock( this->widthMap - 1, y, 0 );
 	}
 }
