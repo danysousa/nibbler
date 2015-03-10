@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 18:26:41 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 12:52:46 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 */
 Snake::Snake( void ) : size( 4 ), direction( "left" ), addBody( false )
 {
+	this->body.push_back( new BodyBlock( 4, 0, 0 ) );
 	this->body.push_back( new BodyBlock( 3, 0, 0 ) );
 	this->body.push_back( new BodyBlock( 2, 0, 0 ) );
 	this->body.push_back( new BodyBlock( 1, 0, 0 ) );
-	this->body.push_back( new BodyBlock( 0, 0, 0 ) );
 
 	return ;
 }
@@ -87,10 +87,8 @@ void						Snake::setDirection( std::string direction )
 /*
 ** METHOD
 */
-void	Snake::update( int width, int height )
+void						Snake::update( int width, int height )
 {
-	std::vector<BodyBlock *>::iterator it = this->body.begin();
-
 	if ( this->addBody )
 	{
 		this->body.push_back( new BodyBlock(0, 0, 0) );
@@ -105,74 +103,91 @@ void	Snake::update( int width, int height )
 	}
 
 	if ( this->direction.compare( "left" ) == 0 )
-		left( it, width );
-	if ( this->direction.compare( "right" ) == 0 )
-		right( it, width );
-	if ( this->direction.compare( "up" ) == 0 )
-		up( it, height );
-	if ( this->direction.compare( "down" ) == 0 )
-		down( it, height );
-
-
+		left( width );
+	else if ( this->direction.compare( "right" ) == 0 )
+		right( width );
+	else if ( this->direction.compare( "up" ) == 0 )
+		up( height );
+	else if ( this->direction.compare( "down" ) == 0 )
+		down( height );
+	if ( this->isDead( width, height ) )
+		exit( 0 );
 	return ;
 }
 
-void			Snake::left( std::vector<BodyBlock *>::iterator it, int width )
+bool						Snake::isDead( int width, int height ) const
 {
-	if ( it == this->body.begin() )
+	if ( this->body[0]->getX() == 0 ||  this->body[0]->getX() == width
+		|| this->body[0]->getY() == 0 ||  this->body[0]->getY() == height )
 	{
-		if ( (*it)->getX() != 0 )
-			(*it)->mooveX( -1 );
-		else
-			(*it)->setX( width );
+			while (1);
+				// std::cout << this->body[0]->getX() << std::endl;
 	}
+
+	for (int i = 1; i < this->size; ++i)
+	{
+		if ( this->body[0]->getX() == this->body[i]->getX() && this->body[0]->getY() == this->body[i]->getY() )
+		{
+			while (1)
+				std::cout << i << std::endl;
+			return ( true );
+		}
+	}
+	return ( false );
 }
 
-void			Snake::right( std::vector<BodyBlock *>::iterator it, int width )
+void						Snake::left( int width )
 {
-	if ( it == this->body.begin() )
-	{
-		if ( (*it)->getX() != width )
-			(*it)->mooveX( 1 );
-		else
-			(*it)->setX( 0 );
-	}
+	if ( this->body[0]->getX() != 0 )
+		this->body[0]->mooveX( -1 );
+	else
+		this->body[0]->setX( width );
+
 }
 
-void			Snake::up( std::vector<BodyBlock *>::iterator it, int height )
+void						Snake::right( int width )
 {
-	if ( it == this->body.begin() )
-	{
-		if ( (*it)->getY() != 0 )
-			(*it)->mooveY( -1 );
-		else
-			(*it)->setY( height );
-	}
+	if ( this->body[0]->getX() != width )
+		this->body[0]->mooveX( 1 );
+	else
+		this->body[0]->setX( 0 );
+
 }
 
-void			Snake::down( std::vector<BodyBlock *>::iterator it, int height )
+void						Snake::up( int height )
 {
-	if ( it == this->body.begin() )
-	{
-		if ( (*it)->getY() != height )
-			(*it)->mooveY( 1 );
-		else
-			(*it)->setY( 0 );
-	}
+	if ( this->body[0]->getY() != 0 )
+		this->body[0]->mooveY( -1 );
+	else
+		this->body[0]->setY( height );
+
 }
 
-void	Snake::render( IGraphicLib *lib )
+void						Snake::down( int height )
+{
+	if ( this->body[0]->getY() != height )
+		this->body[0]->mooveY( 1 );
+	else
+		this->body[0]->setY( 0 );
+
+}
+
+void						Snake::render( IGraphicLib *lib )
 {
 	std::vector<BodyBlock *>::iterator ite = this->body.end();
 
 	for ( std::vector<BodyBlock *>::iterator it = this->body.begin(); it != ite; ++it )
 	{
-		lib->drawCircle( (*it)->getX(), (*it)->getY(), 0 );
+		if ( it != this->body.begin() )
+			lib->drawCircle( (*it)->getX(), (*it)->getY(), 0 );
+		else
+			lib->drawTriangle( (*it)->getX(), (*it)->getY(), 0 );
+
 	}
 	return ;
 }
 
-void	Snake::addBodyBlock( void )
+void						Snake::addBodyBlock( void )
 {
 	this->addBody = true;
 }

@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:23:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 18:04:12 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 12:51:07 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ class Snake : public AGameObject
 		*/
 		virtual void	update( int width, int height );
 		virtual void	render( IGraphicLib *lib );
-		void			left( std::vector<BodyBlock *>::iterator it, int width );
-		void			right( std::vector<BodyBlock *>::iterator it, int width );
-		void			up( std::vector<BodyBlock *>::iterator it, int height );
-		void			down( std::vector<BodyBlock *>::iterator it, int height );
+		void			left( int width );
+		void			right( int width );
+		void			up( int height );
+		void			down( int height );
 		void			addBodyBlock( void );
+		bool			isDead( int width, int height ) const;
 
 	private:
 		int								size;
