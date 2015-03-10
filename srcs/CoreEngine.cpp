@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoreEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 15:04:54 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 12:50:21 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ CoreEngine		CoreEngine::operator=( CoreEngine const & cpy )
 void			CoreEngine::loop( void )
 {
 	long double		tmp;
+
+	this->gameEngine->wall( this->gameEngine->getRender()->getLib() );
 
 	this->gameEngine->getSnake()->render( this->gameEngine->getRender()->getLib() );
 	while ( this->start )
