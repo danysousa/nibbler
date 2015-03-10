@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/10 12:52:46 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 12:57:50 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,19 +119,12 @@ bool						Snake::isDead( int width, int height ) const
 {
 	if ( this->body[0]->getX() == 0 ||  this->body[0]->getX() == width
 		|| this->body[0]->getY() == 0 ||  this->body[0]->getY() == height )
-	{
-			while (1);
-				// std::cout << this->body[0]->getX() << std::endl;
-	}
+		return ( true );
 
 	for (int i = 1; i < this->size; ++i)
 	{
 		if ( this->body[0]->getX() == this->body[i]->getX() && this->body[0]->getY() == this->body[i]->getY() )
-		{
-			while (1)
-				std::cout << i << std::endl;
 			return ( true );
-		}
 	}
 	return ( false );
 }
