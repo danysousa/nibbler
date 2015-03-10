@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/09 17:14:03 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 12:09:10 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void		NcursesLib::drawTriangle( int x, int y , int color )
 
 	init_pair(1, COLOR_YELLOW, COLOR_YELLOW );
 	attron( COLOR_PAIR(1) );
-	mvwprintw( this->win, y, x, "<" );
+	mvwprintw( this->win, y, x, "@" );
 	attroff( COLOR_PAIR(1) );
 }
 
