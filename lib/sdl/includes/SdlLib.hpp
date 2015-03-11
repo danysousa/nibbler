@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   OpenglLib.hpp                                      :+:      :+:    :+:   */
+/*   SdlLib.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/10 16:12:34 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/11 18:02:30 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 # define OPENGL_HPP
 
 # include <iostream>
-# include <GLFW/glfw3.h>
-# include <OpenGL/gl.h>
-# include <OpenGL/glu.h>
+# include <SDL.h>
 # include <IGraphicLib.hpp>
 
-class OpenglLib : public IGraphicLib
+class SdlLib : public IGraphicLib
 {
 	public:
 		/*
 		** CONSTRUCT & DESTRUCT
 		*/
-		OpenglLib( int width, int height );
-		OpenglLib( OpenglLib const & );
-		virtual ~OpenglLib( void );
+		SdlLib( int width, int height );
+		SdlLib( SdlLib const & );
+		virtual ~SdlLib( void );
 
 		/*
 		** OPERATOR
 		*/
-		OpenglLib		operator=( OpenglLib const & cpy );
+		SdlLib		operator=( SdlLib const & cpy );
 
 		/*
 		** GETTER & SETTER
@@ -53,11 +51,12 @@ class OpenglLib : public IGraphicLib
 
 		static int		key;
 	private:
-		OpenglLib( void );
+		SdlLib( void );
 
 		int			width;
 		int			height;
-		GLFWwindow	*win;
+		SDL_Window 	*win;
+		SDL_Event	evenements;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/10 16:49:59 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/11 16:48:40 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ GameEngine::GameEngine( void ) : widthMap( 100 ), heightMap( 50 ), snake( new Sn
 
 GameEngine::GameEngine( int width, int height ) : widthMap( width ), heightMap( height )
 {
-	std::string		tmp = "lib/opengl/OpenglLib.so";
+	std::string		tmp = "lib/sdl/SdlLib.so";
 	this->snake = new Snake( this->widthMap / 2, this->heightMap / 2, "left" );
 	this->food = new Food( this->widthMap, this->heightMap );
 	this->render = new RenderEngine( tmp , this->widthMap, this->heightMap );
