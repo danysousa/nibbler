@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/10 16:14:04 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/11 15:01:00 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ OpenglLib::OpenglLib( int width, int height ) : width(width), height(height)
 	if ( !glfwInit() )
 		exit( EXIT_FAILURE );
 
-	this->win = glfwCreateWindow( width, height, "window", NULL, NULL );
+	this->win = glfwCreateWindow( this->width, this->height, "window", NULL, NULL );
 
 	if ( !this->win )
 	{
