@@ -3,18 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   OpenglLib.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/10 14:50:30 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 16:14:04 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <OpenglLib.hpp>
 
+int		OpenglLib::key = 0;
+
+void		key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	if ( action == GLFW_PRESS )
+		OpenglLib::key = key;
+
+	static_cast<void>(window);
+	static_cast<void>(scancode);
+	static_cast<void>(mods);
+}
+
 OpenglLib::OpenglLib( int width, int height ) : width(width), height(height)
 {
-	glfwSetErrorCallback( error_callback );
+	// glfwSetErrorCallback( error_callback );
 	if ( !glfwInit() )
 		exit( EXIT_FAILURE );
 
@@ -26,7 +38,9 @@ OpenglLib::OpenglLib( int width, int height ) : width(width), height(height)
 		exit( EXIT_FAILURE );
 	}
 	glfwMakeContextCurrent( this->win );
-	glfwSetKeyCallback(this->win, this->key_callback);
+	glfwSetKeyCallback( this->win, key_callback );
+	glfwGetFramebufferSize(this->win, &width, &height);
+	glViewport(0, 0, width, height);
 }
 
 
@@ -66,105 +80,80 @@ int			OpenglLib::getHeight( void ) const
 ** METHOD
 */
 
-void		OpenglLib::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-	if ( action == GLFW_PRESS )
-		this->key = key;
 
-	static_cast<void>(scancode);
-	static_cast<void>(mods);
-}
 
 void		OpenglLib::drawSquare( int x, int y , int color )
 {
 	(void)color;
 	(void)x;
 	(void)y;
-	glBegin(GL_QUAD);
-	glColor3f(1.f, 0.f, 0.f);
-	glVertex3f(-0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 1.f, 0.f);
-	glVertex3f(0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(0.5f, 0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(-0.5f, 0.5f, 0.f);
-	glEnd();
+	  glBegin(GL_QUADS);
+ glVertex2d(2,-1);
+ glVertex2d(4,-1);
+ glVertex2d(4,1);
+ glVertex2d(2,1);
+glEnd();
 }
 
 void		OpenglLib::drawCircle( int x, int y , int color )
 {
-		(void)color;
-		(void)x;
-		(void)y;
-	glBegin(GL_QUAD);
-	glColor3f(1.f, 0.f, 0.f);
-	glVertex3f(-0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 1.f, 0.f);
-	glVertex3f(0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(0.5f, 0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(-0.5f, 0.5f, 0.f);
-	glEnd();
+	(void)color;
+	(void)x;
+	(void)y;
+  glBegin(GL_QUADS);
+ glVertex2d(2,-1);
+ glVertex2d(4,-1);
+ glVertex2d(4,1);
+ glVertex2d(2,1);
+glEnd();
+
 }
 
 void		OpenglLib::drawTriangle( int x, int y , int color )
 {
-		(void)color;
-		(void)x;
-		(void)y;
-	glBegin(GL_QUAD);
-	glColor3f(1.f, 0.f, 0.f);
-	glVertex3f(-0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 1.f, 0.f);
-	glVertex3f(0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(0.5f, 0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(-0.5f, 0.5f, 0.f);
-	glEnd();
+	(void)color;
+	(void)x;
+	(void)y;
+  glBegin(GL_QUADS);
+ glVertex2d(2,-1);
+ glVertex2d(4,-1);
+ glVertex2d(4,1);
+ glVertex2d(2,1);
+glEnd();
 }
 
 void		OpenglLib::drawBlock( int x, int y , int color )
 {
-		(void)color;
-		(void)x;
-		(void)y;
-	glBegin(GL_QUAD);
-	glColor3f(1.f, 0.f, 0.f);
-	glVertex3f(-0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 1.f, 0.f);
-	glVertex3f(0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(0.5f, 0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(-0.5f, 0.5f, 0.f);
-	glEnd();
+	(void)color;
+	(void)x;
+	(void)y;
+  glBegin(GL_QUADS);
+ glVertex2d(2,-1);
+ glVertex2d(4,-1);
+ glVertex2d(4,1);
+ glVertex2d(2,1);
+glEnd();
+
 }
 
 void		OpenglLib::drawEmpty( int x, int y , int color )
 {
-		(void)color;
-		(void)x;
-		(void)y;
-	glBegin(GL_QUAD);
-	glColor3f(1.f, 0.f, 0.f);
-	glVertex3f(-0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 1.f, 0.f);
-	glVertex3f(0.5f, -0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(0.5f, 0.5f, 0.f);
-	glColor3f(0.f, 0.f, 1.f);
-	glVertex3f(-0.5f, 0.5f, 0.f);
-	glEnd();
+	(void)color;
+	(void)x;
+	(void)y;
+  glBegin(GL_QUADS);
+ glVertex2d(2,-1);
+ glVertex2d(4,-1);
+ glVertex2d(4,1);
+ glVertex2d(2,1);
+glEnd();
 }
 
 int		OpenglLib::keyPressed( void )
 {
 	if ( this->key == GLFW_KEY_ESCAPE )
 	{
-		endwin();
+		// endwin();
 		exit(0);
 	}
 	if ( this->key == GLFW_KEY_LEFT )
@@ -181,4 +170,9 @@ int		OpenglLib::keyPressed( void )
 void		OpenglLib::refresh( void )
 {
 	glClear(GL_COLOR_BUFFER_BIT);
+	/* Swap front and back buffers */
+    glfwSwapBuffers(this->win);
+
+    /* Poll for and process events */
+    glfwPollEvents();
 }

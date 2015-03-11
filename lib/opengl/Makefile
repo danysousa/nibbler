@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
+#    By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 14:25:16 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/10 15:12:48 by dsousa           ###   ########.fr        #
+#    Updated: 2015/03/10 15:19:23 by nschilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME		=	OpenglLib.so
 CFLAGS		=	-Wall -Wextra -Werror
 
 INC			=	-I includes -I ../../includes/\
-				-I ~/.brew/Cellar/glfw3/3.1/include/
+				-I ~/.brew/Cellar/glfw3/3.0.4/include/
 
 INC_DIR		=	includes/
 
@@ -42,7 +42,7 @@ OBJ			=	$(SRC:.cpp=.o)
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
-	@$(CC) $(CFLAGS) -shared -o $(NAME) $(OBJ) -L ~/.brew/Cellar/glfw3/3.1/lib/ -lglfw3 -framework OpenGL
+	@$(CC) $(CFLAGS) -shared -o $(NAME) $(OBJ) -L ~/.brew/Cellar/glfw3/3.0.4/lib/ -lglfw3 -framework OpenGL
 	@echo ""
 	@echo "\033[33m"compilation of $(NAME) : "\033[32m"Success"\033[0m"
 

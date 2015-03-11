@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   OpenglLib.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/10 15:03:04 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 16:12:34 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,14 @@ class OpenglLib : public IGraphicLib
 		virtual void	drawEmpty( int x, int y, int color );
 		virtual int		keyPressed( void );
 		virtual void	refresh( void );
-		void			key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
+		static int		key;
 	private:
 		OpenglLib( void );
 
 		int			width;
 		int			height;
 		GLFWwindow	*win;
-		int			key;
 };
 
 #endif
