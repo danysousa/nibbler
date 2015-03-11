@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/10 16:49:59 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/11 18:53:36 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ GameEngine::GameEngine( void ) : widthMap( 100 ), heightMap( 50 ), snake( new Sn
 
 GameEngine::GameEngine( int width, int height ) : widthMap( width ), heightMap( height )
 {
-	std::string		tmp = "lib/opengl/OpenglLib.so";
+	std::string		tmp = "lib/ncurses/NcursesLib.so";
 	this->snake = new Snake( this->widthMap / 2, this->heightMap / 2, "left" );
 	this->food = new Food( this->widthMap, this->heightMap );
 	this->render = new RenderEngine( tmp , this->widthMap, this->heightMap );
@@ -109,18 +109,14 @@ void			GameEngine::renderAll( void )
 {
 	this->snake->render( this->render->getLib() );
 	this->food->render( this->render->getLib() );
+	this->wall( this->render->getLib() );
+
 	return ;
 }
 
 void			GameEngine::cleanScreen( IGraphicLib *lib )
 {
-	for ( int x = 1; x < this->widthMap - 1; x++)
-	{
-		for ( int y = 1; y < this->heightMap - 1; y++ )
-		{
-			lib->drawEmpty(x, y, 0);
-		}
-	}
+	lib->drawEmpty();
 }
 
 void			GameEngine::wall( IGraphicLib *lib )

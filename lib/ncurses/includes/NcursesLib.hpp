@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/10 13:46:30 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/11 18:38:47 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class NcursesLib : public IGraphicLib
 		virtual void	drawCircle( int x, int y, int color );
 		virtual void	drawTriangle( int x, int y, int color );
 		virtual void	drawBlock( int x, int y, int color );
-		virtual void	drawEmpty( int x, int y, int color );
+		virtual void	drawEmpty( void );
 		virtual int		keyPressed( void );
 		virtual void	refresh( void );
 

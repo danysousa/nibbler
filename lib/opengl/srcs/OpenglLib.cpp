@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/11 16:13:41 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/11 18:38:37 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void		key_callback(GLFWwindow*, int key, int, int action, int )
 		OpenglLib::key = key;
 }
 
-OpenglLib::OpenglLib( int width, int height ) : width(width), height(height)
+OpenglLib::OpenglLib( int width, int height ) : width(width * 3), height(height * 3)
 {
 	if ( !glfwInit() )
 		exit( EXIT_FAILURE );
 
-	this->win = glfwCreateWindow( this->width, this->height, "OpenGL", nullptr, nullptr );
+	this->win = glfwCreateWindow( this->width + 10, this->height + 10, "OpenGL", nullptr, nullptr );
 	glfwMakeContextCurrent(this->win);
 	glfwSetKeyCallback( this->win, key_callback );
 }
@@ -68,17 +68,30 @@ int			OpenglLib::getHeight( void ) const
 */
 
 
+double		OpenglLib::adaptX(double x)
+{
+	x = ( x * 3.0 + 1.5) / ( static_cast<double>(this->width) / 2.0 );
+	x = x - 1;
+
+	return (x);
+}
+
+double		OpenglLib::adaptY(double y)
+{
+	y = ( y * 3.0 + 1.5) / ( static_cast<double>(this->height) / 2.0 );
+	y = -y + 1;
+
+	return (y);
+}
 
 void		OpenglLib::drawSquare( int x, int y , int color )
 {
 	(void)color;
-	(void)x;
-	(void)y;
 	glBegin(GL_QUADS);
-		glVertex2d(-0.5,-0.5);
-		glVertex2d(-0.5,0.5);
-		glVertex2d(0.5,0.5);
-		glVertex2d(0.5,-0.5);
+		glVertex2d(this->adaptX(x - 0.8), this->adaptY(y - 0.8));
+		glVertex2d(this->adaptX(x - 0.8), this->adaptY(y + 0.8));
+		glVertex2d(this->adaptX(x + 0.8), this->adaptY(y + 0.8));
+		glVertex2d(this->adaptX(x + 0.8), this->adaptY(y - 0.8));
 	glEnd();
 
 }
@@ -86,65 +99,54 @@ void		OpenglLib::drawSquare( int x, int y , int color )
 void		OpenglLib::drawCircle( int x, int y , int color )
 {
 	(void)color;
-	(void)x;
-	(void)y;
-	float vertices[] = {
-		 0.0f,  0.5f, // Vertex 1 (X, Y)
-		 0.5f, -0.5f, // Vertex 2 (X, Y)
-		-0.5f, -0.5f  // Vertex 3 (X, Y)
-	};
+	double		angle;
+	double		tmp_x;
+	double		tmp_y;
 
-	GLuint vbo;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glBegin(GL_POLYGON);
+	for ( int i = 0; i <= 300; i++ )
+	{
+		angle = 2.0 * 3.14159265 * i / 300.0;
+		tmp_x = cos(angle) * 0.8;
+		tmp_y = sin(angle) * 0.8;
+		glVertex2d( this->adaptX( tmp_x + static_cast<double>(x) ), this->adaptY( tmp_y + static_cast<double>(y) ) );
+	}
+	glEnd();
 
 }
 
 void		OpenglLib::drawTriangle( int x, int y , int color )
 {
 	(void)color;
-	(void)x;
-	(void)y;
-	float vertices[] = {
-		 0.0f,  0.5f, // Vertex 1 (X, Y)
-		 0.5f, -0.5f, // Vertex 2 (X, Y)
-		-0.5f, -0.5f  // Vertex 3 (X, Y)
-	};
+	double		angle;
+	double		tmp_x;
+	double		tmp_y;
 
-	GLuint vbo;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glBegin(GL_POLYGON);
+	for ( int i = 0; i <= 300; i++ )
+	{
+		angle = 2.0 * 3.14159265 * i / 300.0;
+		tmp_x = cos(angle) * 0.8;
+		tmp_y = sin(angle) * 0.8;
+		glVertex2d( this->adaptX( tmp_x + static_cast<double>(x) ), this->adaptY( tmp_y + static_cast<double>(y) ) );
+	}
+	glEnd();
 
 }
 
 void		OpenglLib::drawBlock( int x, int y , int color )
 {
 	(void)color;
-	(void)x;
-	(void)y;
-	float vertices[] = {
-		 0.0f,  0.5f, // Vertex 1 (X, Y)
-		 0.5f, -0.5f, // Vertex 2 (X, Y)
-		-0.5f, -0.5f  // Vertex 3 (X, Y)
-	};
-
-	GLuint vbo;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
-
+	glBegin(GL_QUADS);
+		glVertex2d(this->adaptX(x - 0.8), this->adaptY(y - 0.8));
+		glVertex2d(this->adaptX(x - 0.8), this->adaptY(y + 0.8));
+		glVertex2d(this->adaptX(x + 0.8), this->adaptY(y + 0.8));
+		glVertex2d(this->adaptX(x + 0.8), this->adaptY(y - 0.8));
+	glEnd();
 }
 
-void		OpenglLib::drawEmpty( int x, int y , int color )
+void		OpenglLib::drawEmpty( void )
 {
-	(void)color;
-	(void)x;
-	(void)y;
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
