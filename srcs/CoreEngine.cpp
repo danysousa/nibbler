@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoreEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/10 15:54:29 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/11 16:02:21 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,18 @@ void			CoreEngine::loop( void )
 {
 	long double		tmp;
 
+
 	// this->gameEngine->wall( this->gameEngine->getRender()->getLib() );
 
 	// this->gameEngine->getSnake()->render( this->gameEngine->getRender()->getLib() );
 	while ( this->start )
 	{
+		this->gameEngine->getRender()->getLib()->keyPressed();
 		this->timeStart = clock();
+		this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
 		std::cout << "main fucking loop 1 " << std::endl;
 		this->gameEngine->getRender()->getLib()->drawSquare(1, 1, 1);
 
-		// this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
 		// this->gameEngine->updateAll();
 		// this->gameEngine->renderAll();
 		std::cout << "main fucking loop 2" << std::endl;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   OpenglLib.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/11 15:58:11 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/10 16:12:34 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ class OpenglLib : public IGraphicLib
 		virtual void	refresh( void );
 
 		static int		key;
-
 	private:
 		OpenglLib( void );
 
