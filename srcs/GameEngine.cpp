@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/11 16:48:40 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 10:26:21 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,13 +114,7 @@ void			GameEngine::renderAll( void )
 
 void			GameEngine::cleanScreen( IGraphicLib *lib )
 {
-	for ( int x = 1; x < this->widthMap - 1; x++)
-	{
-		for ( int y = 1; y < this->heightMap - 1; y++ )
-		{
-			lib->drawEmpty(x, y, 0);
-		}
-	}
+	lib->drawEmpty(0, 0, 0);
 }
 
 void			GameEngine::wall( IGraphicLib *lib )

@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/11 18:02:30 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 14:09:41 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <SDL.h>
 # include <IGraphicLib.hpp>
+# define ZOOM 5.0
 
 class SdlLib : public IGraphicLib
 {
@@ -45,7 +46,7 @@ class SdlLib : public IGraphicLib
 		virtual void	drawCircle( int x, int y, int color );
 		virtual void	drawTriangle( int x, int y, int color );
 		virtual void	drawBlock( int x, int y, int color );
-		virtual void	drawEmpty( int x, int y, int color );
+		virtual void	drawEmpty(  int x, int y , int color );
 		virtual int		keyPressed( void );
 		virtual void	refresh( void );
 
@@ -53,10 +54,11 @@ class SdlLib : public IGraphicLib
 	private:
 		SdlLib( void );
 
-		int			width;
-		int			height;
-		SDL_Window 	*win;
-		SDL_Event	evenements;
+		int				width;
+		int				height;
+		SDL_Window 		*win;
+		SDL_Event		event;
+		SDL_Renderer	*renderer;
 };
 
 #endif
