@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SdlLib.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 14:51:40 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 15:38:42 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		SdlLib::drawSquare( int x, int y , int color )
 	(void)color;
 
 	SDL_Rect fillRect = { x * ZOOM, y * ZOOM, ZOOM, ZOOM };
-	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );        
+	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 	SDL_RenderFillRect( this->renderer, &fillRect );
 }
 
@@ -121,7 +121,7 @@ void		SdlLib::drawBlock( int x, int y , int color )
 	(void)color;
 
 	SDL_Rect fillRect = { x * ZOOM, y * ZOOM, ZOOM, ZOOM };
-	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0x00, 0x00, 0xFF );        
+	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 	SDL_RenderFillRect( this->renderer, &fillRect );
 }
 
@@ -148,16 +148,16 @@ void		SdlLib::refresh( void )
 {
 
 	while ( SDL_PollEvent( &(this->event) ) != 0 )
-    {
-        //User requests quit
-        this->key = this->event.key.keysym.scancode;
-        if( this->key == SDL_QUIT || this->key == SDL_WINDOWEVENT_CLOSE || this->key == SDL_SCANCODE_ESCAPE)
-        {
-            SDL_DestroyWindow( this->win );
-            SDL_Quit();
+	{
+		//User requests quit
+		this->key = this->event.key.keysym.scancode;
+		if( this->key == SDL_QUIT || this->key == SDL_WINDOWEVENT_CLOSE || this->key == SDL_SCANCODE_ESCAPE)
+		{
+			SDL_DestroyWindow( this->win );
+			SDL_Quit();
 			exit( 0 );
-        }
-    }
-    
+		}
+	}
+
 	SDL_RenderPresent( this->renderer );
 }

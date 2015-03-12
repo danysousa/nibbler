@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 10:23:15 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 15:38:12 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int			OpenglLib::getHeight( void ) const
 /*
 ** METHOD
 */
-
 
 double		OpenglLib::adaptX(double x)
 {
