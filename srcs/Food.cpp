@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Food.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:15:44 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/10 13:53:47 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 16:26:13 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,6 @@ int		Food::getColor( void ) const
 /*
 ** METHOD
 */
-void	Food::update( int width, int height )
-{
-	(void)width;
-	(void)height;
-	return ;
-}
-
 void	Food::render( IGraphicLib *lib )
 {
 	lib->drawSquare( this->x, this->y, 0 );

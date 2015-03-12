@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 17:08:47 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 17:26:34 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,19 @@ int		SdlLib::keyPressed( void )
 	return (0);
 }
 
+void		SdlLib::score( int score )
+{
+	(void)score;
+	 // mvprintw( this->height + 4, 0, "Score: %d ", score );
+}
+
+void		SdlLib::end( void )
+{
+	SDL_DestroyWindow( this->win );
+	SDL_Quit();
+	exit( 0 );
+}
+
 void		SdlLib::refresh( void )
 {
 
@@ -158,11 +171,7 @@ void		SdlLib::refresh( void )
 		//User requests quit
 		this->key = this->event.key.keysym.scancode;
 		if( this->key == SDL_QUIT || this->key == SDL_WINDOWEVENT_CLOSE || this->key == SDL_SCANCODE_ESCAPE)
-		{
-			SDL_DestroyWindow( this->win );
-			SDL_Quit();
-			exit( 0 );
-		}
+			this->end();
 	}
 
 	SDL_RenderPresent( this->renderer );

@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:39:33 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 17:26:41 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ GameEngine::GameEngine( int width, int height, std::string lib ) : widthMap( wid
 	tb_lib["sdl"] = "lib/sdl/SdlLib.so";
 	tb_lib["opengl"] = "lib/opengl/OpenglLib.so";
 	tb_lib["ncurses"] = "lib/ncurses/NcursesLib.so";
-
 	this->snake = new Snake( this->widthMap / 2, this->heightMap / 2, "left" );
 	this->food = new Food( this->widthMap, this->heightMap );
 	this->render = new RenderEngine( tb_lib[lib] , this->widthMap, this->heightMap );
@@ -111,7 +110,7 @@ void			GameEngine::updateAll( void )
 		this->food->changePos( this->snake, this->widthMap, this->heightMap );
 	}
 
-	this->snake->update( this->widthMap, this->heightMap );
+	this->snake->update( this->widthMap, this->heightMap, this->render->getLib() );
 	return ;
 }
 
@@ -120,7 +119,7 @@ void			GameEngine::renderAll( void )
 	this->snake->render( this->render->getLib() );
 	this->food->render( this->render->getLib() );
 	this->wall( this->render->getLib() );
-
+	this->render->getLib()->score( this->snake->getSize() - 4 );
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 17:10:22 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 17:26:26 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,11 +152,7 @@ void		OpenglLib::drawEmpty( void )
 int		OpenglLib::keyPressed( void )
 {
 	if ( OpenglLib::key == GLFW_KEY_ESCAPE || glfwWindowShouldClose(this->win) )
-	{
-		glfwDestroyWindow(this->win);
-		glfwTerminate();
-		exit(0);
-	}
+		this->end();
 	if ( OpenglLib::key == GLFW_KEY_LEFT )
 		return ( 20 );
 	if ( OpenglLib::key == GLFW_KEY_RIGHT )
@@ -174,12 +170,21 @@ int		OpenglLib::keyPressed( void )
 	return ( 0 );
 }
 
+void		OpenglLib::score( int score )
+{
+	(void)score;
+	 // mvprintw( this->height + 4, 0, "Score: %d ", score );
+}
+
+void	OpenglLib::end( void )
+{
+	glfwDestroyWindow(this->win);
+	glfwTerminate();
+	exit(0);
+}
+
 void		OpenglLib::refresh( void )
 {
-	// glClear(GL_COLOR_BUFFER_BIT);
-	/* Swap front and back buffers */
 	glfwSwapBuffers(this->win);
 	glfwPollEvents();
-
-	/* Poll for and process events */
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Food.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:07:37 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/09 17:28:53 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 16:29:10 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ class Food : public AGameObject
 		/*
 		** METHOD
 		*/
-		virtual void	update( int width, int height );
 		virtual void	render( IGraphicLib *lib );
 		void			changePos( Snake *snake, int width, int height );
 
