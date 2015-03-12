@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 14:40:16 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 14:51:40 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,15 +125,10 @@ void		SdlLib::drawBlock( int x, int y , int color )
 	SDL_RenderFillRect( this->renderer, &fillRect );
 }
 
-void		SdlLib::drawEmpty( int x, int y , int color )
+void		SdlLib::drawEmpty( void )
 {
-	(void)color;
-	(void)x;
-	(void)y;
-
 	SDL_SetRenderDrawColor( this->renderer, 0x00, 0x00, 0x00, 0xFF );
 	SDL_RenderClear( this->renderer );
-
 }
 
 int		SdlLib::keyPressed( void )

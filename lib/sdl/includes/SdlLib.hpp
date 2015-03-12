@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 14:09:41 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 14:51:27 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class SdlLib : public IGraphicLib
 		virtual void	drawCircle( int x, int y, int color );
 		virtual void	drawTriangle( int x, int y, int color );
 		virtual void	drawBlock( int x, int y, int color );
-		virtual void	drawEmpty(  int x, int y , int color );
+		virtual void	drawEmpty(  void );
 		virtual int		keyPressed( void );
 		virtual void	refresh( void );
 

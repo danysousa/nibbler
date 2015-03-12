@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/11 15:58:11 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 10:21:02 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <OpenGL/gl.h>
 # include <OpenGL/glu.h>
 # include <IGraphicLib.hpp>
+# include <math.h>
+# define ZOOM 8.0
 
 class OpenglLib : public IGraphicLib
 {
@@ -44,10 +46,12 @@ class OpenglLib : public IGraphicLib
 		** METHOD
 		*/
 		virtual void	drawSquare( int x, int y, int color );
+		double			adaptX( double x );
+		double			adaptY( double y );
 		virtual void	drawCircle( int x, int y, int color );
 		virtual void	drawTriangle( int x, int y, int color );
 		virtual void	drawBlock( int x, int y, int color );
-		virtual void	drawEmpty( int x, int y, int color );
+		virtual void	drawEmpty( void );
 		virtual int		keyPressed( void );
 		virtual void	refresh( void );
 

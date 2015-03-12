@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 10:26:21 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 14:51:00 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ GameEngine::GameEngine( void ) : widthMap( 100 ), heightMap( 50 ), snake( new Sn
 
 GameEngine::GameEngine( int width, int height ) : widthMap( width ), heightMap( height )
 {
+<<<<<<< HEAD
 	std::string		tmp = "lib/sdl/SdlLib.so";
+=======
+	std::string		tmp = "lib/ncurses/NcursesLib.so";
+>>>>>>> origin/dev
 	this->snake = new Snake( this->widthMap / 2, this->heightMap / 2, "left" );
 	this->food = new Food( this->widthMap, this->heightMap );
 	this->render = new RenderEngine( tmp , this->widthMap, this->heightMap );
@@ -109,12 +113,14 @@ void			GameEngine::renderAll( void )
 {
 	this->snake->render( this->render->getLib() );
 	this->food->render( this->render->getLib() );
+	this->wall( this->render->getLib() );
+
 	return ;
 }
 
 void			GameEngine::cleanScreen( IGraphicLib *lib )
 {
-	lib->drawEmpty(0, 0, 0);
+	lib->drawEmpty();
 }
 
 void			GameEngine::wall( IGraphicLib *lib )
