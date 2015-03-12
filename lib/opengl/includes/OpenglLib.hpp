@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/11 18:38:13 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 10:21:02 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <OpenGL/glu.h>
 # include <IGraphicLib.hpp>
 # include <math.h>
+# define ZOOM 8.0
 
 class OpenglLib : public IGraphicLib
 {

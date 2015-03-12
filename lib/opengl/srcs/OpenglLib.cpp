@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/11 18:38:37 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 10:23:15 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		key_callback(GLFWwindow*, int key, int, int action, int )
 		OpenglLib::key = key;
 }
 
-OpenglLib::OpenglLib( int width, int height ) : width(width * 3), height(height * 3)
+OpenglLib::OpenglLib( int width, int height ) : width(width * ZOOM), height(height * ZOOM)
 {
 	if ( !glfwInit() )
 		exit( EXIT_FAILURE );
@@ -70,7 +70,7 @@ int			OpenglLib::getHeight( void ) const
 
 double		OpenglLib::adaptX(double x)
 {
-	x = ( x * 3.0 + 1.5) / ( static_cast<double>(this->width) / 2.0 );
+	x = ( x * ZOOM + 1.5) / ( static_cast<double>(this->width) / 2.0 );
 	x = x - 1;
 
 	return (x);
@@ -78,7 +78,7 @@ double		OpenglLib::adaptX(double x)
 
 double		OpenglLib::adaptY(double y)
 {
-	y = ( y * 3.0 + 1.5) / ( static_cast<double>(this->height) / 2.0 );
+	y = ( y * ZOOM + 1.5) / ( static_cast<double>(this->height) / 2.0 );
 	y = -y + 1;
 
 	return (y);
@@ -88,10 +88,10 @@ void		OpenglLib::drawSquare( int x, int y , int color )
 {
 	(void)color;
 	glBegin(GL_QUADS);
-		glVertex2d(this->adaptX(x - 0.8), this->adaptY(y - 0.8));
-		glVertex2d(this->adaptX(x - 0.8), this->adaptY(y + 0.8));
-		glVertex2d(this->adaptX(x + 0.8), this->adaptY(y + 0.8));
-		glVertex2d(this->adaptX(x + 0.8), this->adaptY(y - 0.8));
+		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y - ( ZOOM / 15 )));
+		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y + ( ZOOM / 15 )));
+		glVertex2d(this->adaptX(x + ( ZOOM / 15 )), this->adaptY(y + ( ZOOM / 15 )));
+		glVertex2d(this->adaptX(x + ( ZOOM / 15 )), this->adaptY(y - ( ZOOM / 15 )));
 	glEnd();
 
 }
@@ -107,8 +107,8 @@ void		OpenglLib::drawCircle( int x, int y , int color )
 	for ( int i = 0; i <= 300; i++ )
 	{
 		angle = 2.0 * 3.14159265 * i / 300.0;
-		tmp_x = cos(angle) * 0.8;
-		tmp_y = sin(angle) * 0.8;
+		tmp_x = cos(angle) * ( ZOOM / 15 );
+		tmp_y = sin(angle) * ( ZOOM / 15 );
 		glVertex2d( this->adaptX( tmp_x + static_cast<double>(x) ), this->adaptY( tmp_y + static_cast<double>(y) ) );
 	}
 	glEnd();
@@ -126,8 +126,8 @@ void		OpenglLib::drawTriangle( int x, int y , int color )
 	for ( int i = 0; i <= 300; i++ )
 	{
 		angle = 2.0 * 3.14159265 * i / 300.0;
-		tmp_x = cos(angle) * 0.8;
-		tmp_y = sin(angle) * 0.8;
+		tmp_x = cos(angle) * ( ZOOM / 15 );
+		tmp_y = sin(angle) * ( ZOOM / 15 );
 		glVertex2d( this->adaptX( tmp_x + static_cast<double>(x) ), this->adaptY( tmp_y + static_cast<double>(y) ) );
 	}
 	glEnd();
@@ -138,10 +138,10 @@ void		OpenglLib::drawBlock( int x, int y , int color )
 {
 	(void)color;
 	glBegin(GL_QUADS);
-		glVertex2d(this->adaptX(x - 0.8), this->adaptY(y - 0.8));
-		glVertex2d(this->adaptX(x - 0.8), this->adaptY(y + 0.8));
-		glVertex2d(this->adaptX(x + 0.8), this->adaptY(y + 0.8));
-		glVertex2d(this->adaptX(x + 0.8), this->adaptY(y - 0.8));
+		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y - ( ZOOM / 15 )));
+		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y + ( ZOOM / 15 )));
+		glVertex2d(this->adaptX(x + ( ZOOM / 15 )), this->adaptY(y + ( ZOOM / 15 )));
+		glVertex2d(this->adaptX(x + ( ZOOM / 15 )), this->adaptY(y - ( ZOOM / 15 )));
 	glEnd();
 }
 
