@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   NcursesLib.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/11 18:38:47 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 16:14:19 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ class NcursesLib : public IGraphicLib
 		virtual void	drawTriangle( int x, int y, int color );
 		virtual void	drawBlock( int x, int y, int color );
 		virtual void	drawEmpty( void );
+		virtual void	score( int score );
 		virtual int		keyPressed( void );
+		virtual void	end( void );
 		virtual void	refresh( void );
 
 	private:
