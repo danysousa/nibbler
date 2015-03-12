@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:59:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 15:50:05 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 16:37:52 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ class CoreEngine
 		/*
 		** METHOD
 		*/
-		void			loop(void);
+		void			checkChangeLib( void );
+		void			loop( void );
 
 	private:
 		GameEngine		*gameEngine;

@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 15:38:12 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 17:10:22 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,13 @@ int		OpenglLib::keyPressed( void )
 		return ( 60 );
 	if ( OpenglLib::key == GLFW_KEY_DOWN )
 		return (80);
-	return ( OpenglLib::key );
+	if ( OpenglLib::key == GLFW_KEY_1 )
+		return ( 1 );
+	if ( OpenglLib::key == GLFW_KEY_2 )
+		return ( 2 );
+	if ( OpenglLib::key == GLFW_KEY_3 )
+		return ( 3 );
+	return ( 0 );
 }
 
 void		OpenglLib::refresh( void )

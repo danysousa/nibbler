@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:08:26 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 16:50:57 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class GameEngine
 		Snake *			getSnake( void ) const;
 		Food *			getFood( void ) const;
 		RenderEngine *	getRender( void ) const;
+		int				getInput( void ) const;
 
 		/*
 		** METHOD

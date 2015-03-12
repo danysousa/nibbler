@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:24:38 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 17:03:10 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void			CoreEngine::loop( void )
 		this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
 		this->gameEngine->updateAll();
 		this->gameEngine->renderAll();
+		this->checkChangeLib();
 
 		this->timeEnd = clock();
 
@@ -73,4 +74,12 @@ void			CoreEngine::loop( void )
 	}
 
 	return ;
+}
+
+void			CoreEngine::checkChangeLib( void )
+{
+	if ( this->gameEngine->getInput() > 3 || this->gameEngine->getInput() == 0 )
+		return ;
+
+	this->gameEngine->getRender()->changeLib( this->gameEngine->getInput() );
 }

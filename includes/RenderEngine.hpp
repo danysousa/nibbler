@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RenderEngine.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:13 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/06 13:35:55 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 17:04:00 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <string>
 # include <IGraphicLib.hpp>
 # include <dlfcn.h>
+# include <vector>
+# include <unistd.h>
 
 class RenderEngine
 {
@@ -46,6 +48,7 @@ class RenderEngine
 		** METHOD
 		*/
 		void			loadLib( void );
+		void			changeLib( int id );
 
 	private:
 		std::string		libPath;

@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:27:57 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 16:39:33 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ Food *			GameEngine::getFood( void ) const
 RenderEngine *	GameEngine::getRender( void ) const
 {
 	return ( this->render );
+}
+
+int				GameEngine::getInput( void ) const
+{
+	return ( this->input );
 }
 
 /*
