@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 16:17:00 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 17:16:56 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		SdlLib::drawSquare( int x, int y , int color )
 	(void)color;
 
 	SDL_Rect fillRect = { x * ZOOM, y * ZOOM, ZOOM, ZOOM };
-	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );        
+	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 	SDL_RenderFillRect( this->renderer, &fillRect );
 }
 
@@ -121,7 +121,7 @@ void		SdlLib::drawBlock( int x, int y , int color )
 	(void)color;
 
 	SDL_Rect fillRect = { x * ZOOM, y * ZOOM, ZOOM, ZOOM };
-	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0x00, 0x00, 0xFF );        
+	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 	SDL_RenderFillRect( this->renderer, &fillRect );
 }
 
@@ -165,9 +165,7 @@ void		SdlLib::refresh( void )
 		//User requests quit
 		this->key = this->event.key.keysym.scancode;
 		if( this->key == SDL_QUIT || this->key == SDL_WINDOWEVENT_CLOSE || this->key == SDL_SCANCODE_ESCAPE)
-		{
 			this->end();
-		}
 	}
 
 	SDL_RenderPresent( this->renderer );

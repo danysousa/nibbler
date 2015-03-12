@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 16:14:44 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 17:17:18 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <SDL.h>
 # include <IGraphicLib.hpp>
-# define ZOOM 5.0
+# define ZOOM 8.0
 
 class SdlLib : public IGraphicLib
 {
