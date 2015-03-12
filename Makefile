@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
+#    By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/03 13:29:20 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/10 15:05:47 by dsousa           ###   ########.fr        #
+#    Updated: 2015/03/11 16:55:16 by nschilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ all:			$(NAME)
 $(NAME):		$(OBJ)
 	@make -C lib/ncurses
 	@make -C lib/opengl
+	@make -C lib/sdl
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo ""
 	@echo "\033[33m"compilation of $(NAME) : "\033[32m"Success"\033[0m"
@@ -64,11 +65,15 @@ $(OBJ):			$(INC_SRC)
 
 clean:
 	@make clean -C lib/ncurses
+	@make clean -C lib/opengl
+	@make clean -C lib/sdl
 	@/bin/rm -f $(OBJ)
 	@echo "\033[31m"Objects of $(NAME) : deleted"\033[0m"
 
 fclean:			clean
 	@make fclean -C lib/ncurses
+	@make clean -C lib/opengl
+	@make clean -C lib/sdl
 	@/bin/rm -f $(NAME)
 	@echo "\033[31m"$(NAME) : deleted"\033[0m"
 re:				fclean all

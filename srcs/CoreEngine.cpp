@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoreEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/11 18:45:24 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 14:52:30 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,14 @@ void			CoreEngine::loop( void )
 
 	this->gameEngine->wall( this->gameEngine->getRender()->getLib() );
 	this->gameEngine->getSnake()->render( this->gameEngine->getRender()->getLib() );
-
 	while ( this->start )
 	{
 		this->timeStart = clock();
-		// this->gameEngine->getRender()->getLib()->keyPressed();
 		this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
-
+		this->gameEngine->getRender()->getLib();
 		this->gameEngine->updateAll();
 		this->gameEngine->renderAll();
+
 		this->timeEnd = clock();
 
 		tmp = (static_cast<long double>(this->timeEnd) - static_cast<long double>(this->timeStart)) / CLOCKS_PER_SEC;

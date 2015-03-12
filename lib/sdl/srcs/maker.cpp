@@ -6,16 +6,16 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:18:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/10 15:34:40 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/11 16:52:24 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <OpenglLib.hpp>
+#include <SdlLib.hpp>
 #include <iostream>
 
-extern "C" OpenglLib		*maker( int width, int height )
+extern "C" SdlLib		*maker( int width, int height )
 {
-	OpenglLib *n = new OpenglLib(width, height);
+	SdlLib *n = new SdlLib( width, height );
 
 	return ( n );
 }
