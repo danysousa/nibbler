@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 14:53:56 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 16:27:57 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@ GameEngine::GameEngine( void ) : widthMap( 100 ), heightMap( 50 ), snake( new Sn
 	return ;
 }
 
-GameEngine::GameEngine( int width, int height ) : widthMap( width ), heightMap( height )
+GameEngine::GameEngine( int width, int height, std::string lib ) : widthMap( width ), heightMap( height )
 {
-	std::string		tmp = "lib/sdl/SdlLib.so";
+	std::map<std::string, std::string>	tb_lib;
+
+	tb_lib["sdl"] = "lib/sdl/SdlLib.so";
+	tb_lib["opengl"] = "lib/opengl/OpenglLib.so";
+	tb_lib["ncurses"] = "lib/ncurses/NcursesLib.so";
+
 	this->snake = new Snake( this->widthMap / 2, this->heightMap / 2, "left" );
 	this->food = new Food( this->widthMap, this->heightMap );
-	this->render = new RenderEngine( tmp , this->widthMap, this->heightMap );
+	this->render = new RenderEngine( tb_lib[lib] , this->widthMap, this->heightMap );
 	return ;
 }
 

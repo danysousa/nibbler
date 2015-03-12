@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SdlLib.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 14:51:27 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 15:40:45 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <SDL.h>
 # include <IGraphicLib.hpp>
-# define ZOOM 5.0
+# define ZOOM 8.0
 
 class SdlLib : public IGraphicLib
 {

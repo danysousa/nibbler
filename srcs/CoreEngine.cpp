@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoreEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 14:52:30 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 16:24:38 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ CoreEngine::CoreEngine( void ) : gameEngine( new GameEngine ), start( 1 )
 	return ;
 }
 
-CoreEngine::CoreEngine( int width, int height ) : gameEngine( new GameEngine( width, height ) ), start( 1 )
+CoreEngine::CoreEngine( int width, int height, std::string lib ) : gameEngine( new GameEngine( width, height, lib ) ), start( 1 )
 {
 	return ;
 }
@@ -60,7 +60,6 @@ void			CoreEngine::loop( void )
 	{
 		this->timeStart = clock();
 		this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
-		this->gameEngine->getRender()->getLib();
 		this->gameEngine->updateAll();
 		this->gameEngine->renderAll();
 
@@ -68,7 +67,7 @@ void			CoreEngine::loop( void )
 
 		tmp = (static_cast<long double>(this->timeEnd) - static_cast<long double>(this->timeStart)) / CLOCKS_PER_SEC;
 		if ( tmp < 0.04 )
-			usleep( (0.4 - tmp ) * 100000 );
+			usleep( (0.4 - tmp ) * 150000 );
 
 		this->gameEngine->getRender()->getLib()->refresh();
 	}

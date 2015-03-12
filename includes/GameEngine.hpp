@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameEngine.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:05:41 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/11 17:00:15 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 16:08:26 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <Snake.hpp>
 # include <Food.hpp>
 # include <RenderEngine.hpp>
+# include <map>
 
 class GameEngine
 {
@@ -25,7 +26,7 @@ class GameEngine
 		** CONSTRUCT & DESTRUCT
 		*/
 		GameEngine( void );
-		GameEngine( int width, int height);
+		GameEngine( int width, int height, std::string lib );
 		GameEngine( GameEngine const & cpy );
 		~GameEngine( void );
 

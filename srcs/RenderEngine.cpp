@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:06 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/11 16:12:57 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 16:15:19 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,14 @@ void			RenderEngine::loadLib( void )
 	if ( hndl == NULL )
 	{
 		std::cout << dlerror() << std::endl;
-		std::cout << "ERRRRRRROOOOOR" << std::endl;
+		exit( -1 );
 	}
 
 	f = ( IGraphicLib *( * )( int, int ) )( dlsym( hndl, "maker" ) );
 	if ( f == NULL )
 	{
 		std::cout << dlerror() << std::endl;
-		std::cout << "ERRRRRRROOOOOR" << std::endl;
+		exit( -1 );
 	}
 
 	this->lib = f( this->width, this->height );
