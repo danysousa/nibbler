@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:06 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:15:19 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 17:05:02 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,23 @@ void			RenderEngine::loadLib( void )
 	}
 
 	this->lib = f( this->width, this->height );
+}
+
+void			RenderEngine::changeLib( int id )
+{
+	std::vector<const char *>	v;
+
+	v.push_back( "lib/ncurses/NcursesLib.so" );
+	v.push_back( "lib/opengl/OpenglLib.so" );
+	v.push_back( "lib/sdl/SdlLib.so" );
+
+	if ( id > 3 || id == 0 )
+		return ;
+
+	if ( this->libPath == v[id - 1] )
+		return ;
+
+	this->libPath = v[id - 1];
+	this->loadLib();
+	sleep( 2 );
 }

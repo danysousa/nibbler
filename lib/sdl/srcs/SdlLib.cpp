@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 15:38:42 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 17:08:47 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,12 @@ int		SdlLib::keyPressed( void )
 		return ( 60 );
 	if ( this->key == SDL_SCANCODE_DOWN )
 		return (80);
+	if ( this->key == SDL_SCANCODE_KP_1)
+		return ( 1 );
+	if ( this->key == SDL_SCANCODE_KP_2)
+		return ( 1 );
+	if ( this->key == SDL_SCANCODE_KP_3)
+		return ( 1 );
 	return (0);
 }
 
