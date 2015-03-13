@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Snake.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:23:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/10 12:51:07 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 16:29:56 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class Snake : public AGameObject
 		/*
 		** METHOD
 		*/
-		virtual void	update( int width, int height );
+		void	update( int width, int height, IGraphicLib *lib );
 		virtual void	render( IGraphicLib *lib );
 		void			left( int width );
 		void			right( int width );

@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 14:01:21 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 16:30:05 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void						Snake::setDirection( std::string direction )
 /*
 ** METHOD
 */
-void						Snake::update( int width, int height )
+void						Snake::update( int width, int height, IGraphicLib *lib )
 {
 	if ( this->addBody )
 	{
@@ -111,7 +111,7 @@ void						Snake::update( int width, int height )
 	else if ( this->direction.compare( "down" ) == 0 )
 		down( height );
 	if ( this->isDead( width, height ) )
-		exit( 0 );
+		lib->end();
 	return ;
 }
 

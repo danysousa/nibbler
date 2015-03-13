@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 17:00:31 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/12 17:26:16 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ NcursesLib::NcursesLib( int width, int height ) : width(width), height(height)
 {
 	initscr();
 	cbreak();
-	this->win = newwin(this->height, this->width, 0, 0);
+	this->win = newwin(this->height + 5, this->width, 0, 0);
 	nodelay( stdscr, true );
 	keypad( stdscr, true );
 	noecho();
@@ -114,10 +114,7 @@ int		NcursesLib::keyPressed( void )
 		return ( key - 48 );
 
 	if ( key == 27 )
-	{
-		endwin();
-		exit(0);
-	}
+		this->end();
 	if ( key == KEY_LEFT )
 		return ( 20 );
 	if ( key == KEY_RIGHT )
@@ -127,6 +124,16 @@ int		NcursesLib::keyPressed( void )
 	if ( key == KEY_DOWN )
 		return (80);
 	return ( 0 );
+}
+void		NcursesLib::score( int score )
+{
+	 mvprintw( this->height + 2, 0, "Score: %d ", score );
+}
+
+void	NcursesLib::end( void )
+{
+	endwin();
+	exit(0);
 }
 
 void		NcursesLib::refresh( void )
