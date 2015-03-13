@@ -6,13 +6,13 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 14:40:54 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/13 14:43:17 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <NcursesLib.hpp>
 
-NcursesLib::NcursesLib( int width, int height ) : width(width), height(height)
+NcursesLib::NcursesLib( int width, int height ) : width( width ), height( height ), key( 0 )
 {
 	initscr();
 	cbreak();
@@ -104,23 +104,19 @@ void		NcursesLib::drawEmpty( void )
 
 int		NcursesLib::keyPressed( void )
 {
-	int		key = getch();
-
-	if ( key >= 49 && key <= 52 )
-		return ( key - 48 );
-
-	if ( key == 27 )
-	{
-		this->end();
+	if ( this->key == 27 )
 		return ( -1 );
-	}
-	if ( key == KEY_LEFT )
+	if ( this->key >= 49 && this->key <= 52 )
+		return ( this->key - 48 );
+	if ( this->key == 32 )
+		return ( 42 );
+	if ( this->key == KEY_LEFT )
 		return ( 20 );
-	if ( key == KEY_RIGHT )
+	if ( this->key == KEY_RIGHT )
 		return ( 40 );
-	if ( key == KEY_UP )
+	if ( this->key == KEY_UP )
 		return ( 60 );
-	if ( key == KEY_DOWN )
+	if ( this->key == KEY_DOWN )
 		return (80);
 	return ( 0 );
 }
@@ -137,4 +133,5 @@ void	NcursesLib::end( void )
 void		NcursesLib::refresh( void )
 {
 	wrefresh( this->win );
+	this->key = getch();
 }

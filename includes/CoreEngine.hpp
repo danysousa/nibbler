@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:59:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:37:52 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 13:21:43 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class CoreEngine
 		** CONSTRUCT & DESTRUCT
 		*/
 		CoreEngine( void );
-		CoreEngine( int width, int height, std::string lib );
+		CoreEngine( int width, int height, std::string lib, int diff );
 		CoreEngine( CoreEngine const & cpy );
 		~CoreEngine( void );
 
@@ -40,6 +40,7 @@ class CoreEngine
 	private:
 		GameEngine		*gameEngine;
 		int				start;
+		int				diff;
 		clock_t			timeStart;
 		clock_t			timeEnd;
 };

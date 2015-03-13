@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 13:14:56 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/13 14:44:33 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ int			SdlLib::getHeight( void ) const
 /*
 ** METHOD
 */
-
-
 
 void		SdlLib::drawSquare( int x, int y , int )
 {
@@ -128,10 +126,9 @@ void		SdlLib::drawEmpty( void )
 int		SdlLib::keyPressed( void )
 {
 	if( this->key == SDL_QUIT || this->key == SDL_WINDOWEVENT_CLOSE || this->key == SDL_SCANCODE_ESCAPE)
-	{
-		this->end();
 		return ( -1 );
-	}
+	if ( this->key == SDL_SCANCODE_SPACE)
+		return ( 42 );
 	if ( this->key == SDL_SCANCODE_LEFT )
 		return ( 20 );
 	if ( this->key == SDL_SCANCODE_RIGHT )
@@ -162,7 +159,7 @@ void		SdlLib::end( void )
 
 void		SdlLib::refresh( void )
 {
-
+	this->key = 0;
 	while ( SDL_PollEvent( &(this->event) ) != 0 )
 	{
 		this->key = this->event.key.keysym.scancode;

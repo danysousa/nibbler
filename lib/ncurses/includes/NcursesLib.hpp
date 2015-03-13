@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 14:38:13 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/13 14:45:12 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ class NcursesLib : public IGraphicLib
 		int		width;
 		int		height;
 		WINDOW	*win;
+		int		key;
 };
 
 #endif

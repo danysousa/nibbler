@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/13 11:25:11 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 13:52:09 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,7 @@ int				GameEngine::getInput( void ) const
 void			GameEngine::updateAll( void )
 {
 	this->input = this->render->getLib()->keyPressed();
-	if ( this->input == 27 )
-		exit( 0 );
+
 	if ( this->input == 20 && this->snake->getDirection().compare("right") != 0 )
 		this->snake->setDirection("left");
 	if ( this->input == 40 && this->snake->getDirection().compare("left") != 0 )

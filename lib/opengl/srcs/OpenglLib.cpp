@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 13:26:00 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/13 14:44:17 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,10 +153,9 @@ void		OpenglLib::drawEmpty( void )
 int		OpenglLib::keyPressed( void )
 {
 	if ( OpenglLib::key == GLFW_KEY_ESCAPE || glfwWindowShouldClose(this->win) )
-	{
-		this->end();
 		return ( -1 );
-	}
+	if ( OpenglLib::key == GLFW_KEY_SPACE )
+		return ( 42 );
 	if ( OpenglLib::key == GLFW_KEY_LEFT )
 		return ( 20 );
 	if ( OpenglLib::key == GLFW_KEY_RIGHT )
@@ -187,6 +186,7 @@ void	OpenglLib::end( void )
 
 void		OpenglLib::refresh( void )
 {
+	this->key = 0;
 	glfwSwapBuffers(this->win);
 	glfwPollEvents();
 }
