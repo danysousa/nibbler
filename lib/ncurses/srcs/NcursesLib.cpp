@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 12:17:39 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 13:53:51 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,15 +100,12 @@ void		NcursesLib::drawEmpty( void )
 
 int		NcursesLib::keyPressed( void )
 {
+	if ( this->key == 27 )
+		return ( -1 );
 	if ( this->key >= 49 && this->key <= 52 )
 		return ( this->key - 48 );
 	if ( this->key == 32 )
 		return ( 42 );
-	if ( this->key == 27 )
-	{
-		this->end();
-		return ( -1 );
-	}
 	if ( this->key == KEY_LEFT )
 		return ( 20 );
 	if ( this->key == KEY_RIGHT )

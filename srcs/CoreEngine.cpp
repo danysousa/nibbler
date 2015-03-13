@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/13 12:20:08 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 13:23:03 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ CoreEngine::CoreEngine( void ) : gameEngine( new GameEngine ), start( 1 )
 	return ;
 }
 
-CoreEngine::CoreEngine( int width, int height, std::string lib ) : gameEngine( new GameEngine( width, height, lib ) ), start( 1 )
+CoreEngine::CoreEngine( int width, int height, std::string lib, int diff ) : gameEngine( new GameEngine( width, height, lib ) ), start( 1 ), diff( diff )
 {
 	return ;
 }
@@ -86,7 +86,7 @@ void			CoreEngine::loop( void )
 		this->timeEnd = clock();
 		tmp = (static_cast<long double>(this->timeEnd) - static_cast<long double>(this->timeStart)) / CLOCKS_PER_SEC;
 		if ( tmp < 0.04 )
-			usleep( (0.4 - tmp ) * 150000 );
+			usleep( ((0.4 - tmp ) * 450000) / this->diff );
 
 		this->gameEngine->getRender()->getLib()->refresh();
 	}
