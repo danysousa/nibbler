@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   NcursesLib.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 11:40:22 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 14:40:54 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,14 @@ NcursesLib::NcursesLib( int width, int height ) : width(width), height(height)
 	nodelay( stdscr, true );
 	keypad( stdscr, true );
 	noecho();
-	start_color();
 	curs_set( false );
-
 	wrefresh( this->win );
+	start_color();
+
+	init_color( COLOR_RED_2, 930, 78, 450 );
+	init_pair( 1, COLOR_RED_2, COLOR_BLACK );
+	init_color( COLOR_BLUE_2, 200, 750, 1000);
+	init_pair( 2, COLOR_BLUE_2, COLOR_BLACK );
 }
 
 NcursesLib::NcursesLib( NcursesLib const & cpy )
@@ -63,34 +67,34 @@ int			NcursesLib::getHeight( void ) const
 */
 void		NcursesLib::drawSquare( int x, int y , int  )
 {
-	init_pair(1, COLOR_YELLOW, COLOR_YELLOW );
-	attron( COLOR_PAIR(1) );
-	mvwprintw( this->win, y, x, "+" );
-	attroff( COLOR_PAIR(1) );
+	init_pair(1, COLOR_RED_2, COLOR_BLACK );
+	wattron( this->win, COLOR_PAIR(1) );
+	mvwprintw( this->win, y, x, "+", 31 );
+	wattroff( this->win, COLOR_PAIR(1) );
 }
 
 void		NcursesLib::drawCircle( int x, int y , int )
 {
-	init_pair(1, COLOR_RED, COLOR_RED );
-	attron( COLOR_PAIR(1) );
-	mvwprintw( this->win, y, x, "o" );
-	attroff( COLOR_PAIR(1) );
+	init_pair(2, COLOR_BLUE_2, COLOR_BLACK );
+	wattron( this->win, COLOR_PAIR(2) );
+	mvwprintw( this->win, y, x, "o", 31 );
+	wattroff( this->win, COLOR_PAIR(2) );
 }
 
 void		NcursesLib::drawTriangle( int x, int y , int )
 {
-	init_pair(1, COLOR_YELLOW, COLOR_YELLOW );
-	attron( COLOR_PAIR(1) );
-	mvwprintw( this->win, y, x, "@" );
-	attroff( COLOR_PAIR(1) );
+	init_pair(3, COLOR_CYAN, COLOR_BLACK );
+	wattron( this->win, COLOR_PAIR(3) );
+	mvwprintw( this->win, y, x, "@", 31 );
+	wattroff( this->win, COLOR_PAIR(3) );
 }
 
 void		NcursesLib::drawBlock( int x, int y , int )
 {
-	init_pair(1, COLOR_YELLOW, COLOR_YELLOW );
-	attron( COLOR_PAIR(1) );
-	mvwprintw( this->win, y, x, "*" );
-	attroff( COLOR_PAIR(1) );
+	init_pair(4, COLOR_WHITE, COLOR_BLACK );
+	wattron( this->win, COLOR_PAIR(4) );
+	mvwprintw( this->win, y, x, "*", 31 );
+	wattroff( this->win, COLOR_PAIR(4) );
 }
 
 void		NcursesLib::drawEmpty( void )

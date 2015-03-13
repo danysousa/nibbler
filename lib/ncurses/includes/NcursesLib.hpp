@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 16:14:19 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/13 14:38:13 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <iostream>
 # include <ncurses.h>
 # include <IGraphicLib.hpp>
+
+# define SET_COLOR(COLOR) (attron(COLOR_PAIR(COLOR)))
+# define COLOR_RED_2 (COLOR_WHITE + 1)
+# define COLOR_BLUE_2 (COLOR_WHITE + 2)
 
 class NcursesLib : public IGraphicLib
 {

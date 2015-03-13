@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   OpenglLib.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 11:41:07 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 13:26:00 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ double		OpenglLib::adaptY(double y)
 
 void		OpenglLib::drawSquare( int x, int y , int )
 {
+	glColor3f(0.88f, 0.1f, 0.5f);
 	glBegin(GL_QUADS);
 		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y - ( ZOOM / 15 )));
 		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y + ( ZOOM / 15 )));
@@ -100,6 +101,7 @@ void		OpenglLib::drawCircle( int x, int y , int )
 	double		tmp_x;
 	double		tmp_y;
 
+	glColor3f(0.25f, 0.6f, 1.0f);
 	glBegin(GL_POLYGON);
 	for ( int i = 0; i <= 300; i++ )
 	{
@@ -118,6 +120,7 @@ void		OpenglLib::drawTriangle( int x, int y , int )
 	double		tmp_x;
 	double		tmp_y;
 
+	glColor3f(0.0f, 1.0f, 0.8f);
 	glBegin(GL_POLYGON);
 	for ( int i = 0; i <= 300; i++ )
 	{
@@ -132,6 +135,8 @@ void		OpenglLib::drawTriangle( int x, int y , int )
 
 void		OpenglLib::drawBlock( int x, int y , int )
 {
+
+	glColor3f(1.0f, 1.0f, 1.0f);
 	glBegin(GL_QUADS);
 		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y - ( ZOOM / 15 )));
 		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y + ( ZOOM / 15 )));

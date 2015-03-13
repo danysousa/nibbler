@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SdlLib.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 11:42:28 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 13:14:56 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int			SdlLib::getHeight( void ) const
 void		SdlLib::drawSquare( int x, int y , int )
 {
 	SDL_Rect fillRect = { x * ZOOM, y * ZOOM, ZOOM, ZOOM };
-	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
+	SDL_SetRenderDrawColor( this->renderer, 232, 18, 135, 0xFF );
 	SDL_RenderFillRect( this->renderer, &fillRect );
 }
 
@@ -80,7 +80,7 @@ void		SdlLib::drawCircle( int x, int y , int )
 	double	tmp_y;
 	double	angle;
 
-	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
+	SDL_SetRenderDrawColor( this->renderer, 57, 160, 255, 0xFF );
 	for( int i = 0; i < ZOOM / 2; ++i )
 	{
 		for (int j = 0; j < 360; ++j)
@@ -99,7 +99,7 @@ void		SdlLib::drawTriangle( int x, int y , int )
 	double	tmp_y;
 	double	angle;
 
-	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
+	SDL_SetRenderDrawColor( this->renderer, 0, 255, 200, 0xFF );
 	for( int i = 0; i < ZOOM / 2; ++i )
 	{
 		for (int j = 0; j < 360; ++j)
