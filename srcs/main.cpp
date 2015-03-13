@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:23:20 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:11:07 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 12:00:42 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,21 @@ static void		ft_usage( void )
 
 static int		ft_check_params( char *str )
 {
-	for ( int i = 0;str[i] != '\0';i++ )
+	for ( int i = 0; str[i] != '\0'; i++ )
 	{
 		if ( !isdigit( str[i] ) )
 		{
 			ft_usage();
+			return ( 1 );
+		}
+		if ( atoi( str ) < 10 )
+		{
+			std::cout << "Map is too small" << std::endl;
+			return ( 1 );
+		}
+		if ( atoi( str ) > 73 )
+		{
+			std::cout << "Map is too large" << std::endl;
 			return ( 1 );
 		}
 	}

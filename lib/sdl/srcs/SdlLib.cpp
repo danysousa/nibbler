@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 11:42:28 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 12:01:34 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ int			SdlLib::getHeight( void ) const
 /*
 ** METHOD
 */
-
-
 
 void		SdlLib::drawSquare( int x, int y , int )
 {
