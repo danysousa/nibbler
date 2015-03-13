@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+         #
+#    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 14:25:16 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/11 17:57:24 by nschilli         ###   ########.fr        #
+#    Updated: 2015/03/13 15:01:14 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ OBJ			=	$(SRC:.cpp=.o)
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
-	@$(CC) $(CFLAGS) -shared -o $(NAME) $(OBJ) -F ~/Library/Frameworks/ -framework SDL2
+	@$(CC) $(CFLAGS) -shared -fPIC -o $(NAME) $(OBJ) -F ~/Library/Frameworks/ -framework SDL2
 	@echo ""
 	@echo "\033[33m"compilation of $(NAME) : "\033[32m"Success"\033[0m"
 

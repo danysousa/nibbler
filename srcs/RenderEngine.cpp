@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:06 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/13 11:25:56 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 14:56:54 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void			RenderEngine::loadLib( void )
 {
 	IGraphicLib		*(*f)(int, int);
 
-	this->ptrLib = dlopen(this->libPath.c_str(), RTLD_LAZY);
+	this->ptrLib = dlopen(this->libPath.c_str(), RTLD_LAZY | RTLD_LOCAL);
 
 	if ( this->ptrLib == NULL )
 	{

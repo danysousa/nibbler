@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+         #
+#    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 14:25:16 by dsousa            #+#    #+#              #
-#    Updated: 2015/03/11 15:04:53 by nschilli         ###   ########.fr        #
+#    Updated: 2015/03/13 15:01:19 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ OBJ			=	$(SRC:.cpp=.o)
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
-	@$(CC) $(CFLAGS) -shared -o $(NAME) $(OBJ) -L ~/.brew/Cellar/glfw3/3.1/lib/ -lglfw3 -framework OpenGL
+	@$(CC) $(CFLAGS) -fPIC -shared -o $(NAME) $(OBJ) -L ~/.brew/Cellar/glfw3/3.1/lib/ -lglfw3 -framework OpenGL
 	@echo ""
 	@echo "\033[33m"compilation of $(NAME) : "\033[32m"Success"\033[0m"
 
