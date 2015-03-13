@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   NcursesLib.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:02 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 16:14:19 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/13 12:06:50 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ class NcursesLib : public IGraphicLib
 		int		width;
 		int		height;
 		WINDOW	*win;
+		int		key;
 };
 
 #endif

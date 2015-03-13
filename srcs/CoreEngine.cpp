@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/13 10:24:42 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 12:20:08 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,17 @@ void			CoreEngine::loop( void )
 		this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
 		this->gameEngine->updateAll();
 		this->gameEngine->renderAll();
+
+		if ( this->gameEngine->getInput() == 42 )
+		{
+			usleep( 90000 );
+			this->gameEngine->getRender()->getLib()->refresh();
+			while ( this->gameEngine->getRender()->getLib()->keyPressed() != 42 )
+			{
+				this->gameEngine->getRender()->getLib()->refresh();
+				usleep( 90000 );
+			}
+		}
 
 		if ( this->gameEngine->getInput() == -1
 			|| this->gameEngine->getSnake()->isDead( this->gameEngine->getWidthMap(), this->gameEngine->getHeightMap() ) )
