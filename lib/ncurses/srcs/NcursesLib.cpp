@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 10:08:58 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:40:22 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,40 +61,32 @@ int			NcursesLib::getHeight( void ) const
 /*
 ** METHOD
 */
-void		NcursesLib::drawSquare( int x, int y , int color )
+void		NcursesLib::drawSquare( int x, int y , int  )
 {
-	(void)color;
-
 	init_pair(1, COLOR_YELLOW, COLOR_YELLOW );
 	attron( COLOR_PAIR(1) );
 	mvwprintw( this->win, y, x, "+" );
 	attroff( COLOR_PAIR(1) );
 }
 
-void		NcursesLib::drawCircle( int x, int y , int color )
+void		NcursesLib::drawCircle( int x, int y , int )
 {
-	(void)color;
-
 	init_pair(1, COLOR_RED, COLOR_RED );
 	attron( COLOR_PAIR(1) );
 	mvwprintw( this->win, y, x, "o" );
 	attroff( COLOR_PAIR(1) );
 }
 
-void		NcursesLib::drawTriangle( int x, int y , int color )
+void		NcursesLib::drawTriangle( int x, int y , int )
 {
-	(void)color;
-
 	init_pair(1, COLOR_YELLOW, COLOR_YELLOW );
 	attron( COLOR_PAIR(1) );
 	mvwprintw( this->win, y, x, "@" );
 	attroff( COLOR_PAIR(1) );
 }
 
-void		NcursesLib::drawBlock( int x, int y , int color )
+void		NcursesLib::drawBlock( int x, int y , int )
 {
-	(void)color;
-
 	init_pair(1, COLOR_YELLOW, COLOR_YELLOW );
 	attron( COLOR_PAIR(1) );
 	mvwprintw( this->win, y, x, "*" );

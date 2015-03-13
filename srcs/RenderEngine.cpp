@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:06 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/13 10:32:56 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:25:56 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ RenderEngine::RenderEngine( RenderEngine const & cpy )
 
 RenderEngine::~RenderEngine( void )
 {
+	delete this->lib;
+	dlclose(this->ptrLib);
 	return ;
 }
 

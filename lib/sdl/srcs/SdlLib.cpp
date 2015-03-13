@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/13 11:00:55 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:42:28 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,15 @@ int			SdlLib::getHeight( void ) const
 
 
 
-void		SdlLib::drawSquare( int x, int y , int color )
+void		SdlLib::drawSquare( int x, int y , int )
 {
-	(void)color;
-
 	SDL_Rect fillRect = { x * ZOOM, y * ZOOM, ZOOM, ZOOM };
 	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 	SDL_RenderFillRect( this->renderer, &fillRect );
 }
 
-void		SdlLib::drawCircle( int x, int y , int color )
+void		SdlLib::drawCircle( int x, int y , int )
 {
-	(void)color;
 	double	tmp_x;
 	double	tmp_y;
 	double	angle;
@@ -96,9 +93,8 @@ void		SdlLib::drawCircle( int x, int y , int color )
 	}
 }
 
-void		SdlLib::drawTriangle( int x, int y , int color )
+void		SdlLib::drawTriangle( int x, int y , int )
 {
-	(void)color;
 	double	tmp_x;
 	double	tmp_y;
 	double	angle;
@@ -116,10 +112,8 @@ void		SdlLib::drawTriangle( int x, int y , int color )
 	}
 }
 
-void		SdlLib::drawBlock( int x, int y , int color )
+void		SdlLib::drawBlock( int x, int y , int )
 {
-	(void)color;
-
 	SDL_Rect fillRect = { x * ZOOM, y * ZOOM, ZOOM, ZOOM };
 	SDL_SetRenderDrawColor( this->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 	SDL_RenderFillRect( this->renderer, &fillRect );
@@ -155,10 +149,9 @@ int		SdlLib::keyPressed( void )
 	return (0);
 }
 
-void		SdlLib::score( int score )
+void		SdlLib::score( int )
 {
-	(void)score;
-	 // mvprintw( this->height + 4, 0, "Score: %d ", score );
+	return ;
 }
 
 void		SdlLib::end( void )
@@ -172,7 +165,6 @@ void		SdlLib::refresh( void )
 
 	while ( SDL_PollEvent( &(this->event) ) != 0 )
 	{
-		//User requests quit
 		this->key = this->event.key.keysym.scancode;
 	}
 

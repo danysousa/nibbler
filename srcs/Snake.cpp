@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/13 10:23:19 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:30:04 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ Snake::Snake( Snake const & cpy )
 
 Snake::~Snake( void )
 {
+	for (int i = this->size - 1 ; i >= 0 ; --i)
+	{
+		delete this->body[i];
+	}
 	return ;
 }
 
