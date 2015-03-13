@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BodyBlock.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 16:11:36 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/09 14:16:44 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/13 11:30:53 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class BodyBlock
 		*/
 		BodyBlock( BodyBlock const & cpy );
 		BodyBlock( int x, int y, int color );
-		~BodyBlock( void );
+		virtual ~BodyBlock( void );
 
 		/*
 		** OPERATOR

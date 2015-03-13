@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:06:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 17:26:41 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:25:11 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ GameEngine::GameEngine( GameEngine const & cpy )
 
 GameEngine::~GameEngine( void )
 {
+	delete this->snake;
+	delete this->food;
+	delete this->render;
 	return ;
 }
 

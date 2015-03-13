@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:13 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 17:04:00 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 10:32:15 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ class RenderEngine
 		int				width;
 		int				height;
 		IGraphicLib		*lib;
+		void			*ptrLib;
 };
 
 #endif

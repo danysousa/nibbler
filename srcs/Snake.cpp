@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Snake.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:22:59 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:30:05 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/13 11:30:04 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ Snake::Snake( Snake const & cpy )
 
 Snake::~Snake( void )
 {
+	for (int i = this->size - 1 ; i >= 0 ; --i)
+	{
+		delete this->body[i];
+	}
 	return ;
 }
 
@@ -87,7 +91,7 @@ void						Snake::setDirection( std::string direction )
 /*
 ** METHOD
 */
-void						Snake::update( int width, int height, IGraphicLib *lib )
+void						Snake::update( int width, int height, IGraphicLib * )
 {
 	if ( this->addBody )
 	{
@@ -110,8 +114,6 @@ void						Snake::update( int width, int height, IGraphicLib *lib )
 		up( height );
 	else if ( this->direction.compare( "down" ) == 0 )
 		down( height );
-	if ( this->isDead( width, height ) )
-		lib->end();
 	return ;
 }
 

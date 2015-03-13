@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 11:25:06 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 17:05:02 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:25:56 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ RenderEngine::RenderEngine( RenderEngine const & cpy )
 
 RenderEngine::~RenderEngine( void )
 {
+	delete this->lib;
+	dlclose(this->ptrLib);
 	return ;
 }
 
@@ -86,17 +88,16 @@ IGraphicLib *	RenderEngine::getLib( void ) const
 void			RenderEngine::loadLib( void )
 {
 	IGraphicLib		*(*f)(int, int);
-	void			*hndl;
 
-	hndl = dlopen(this->libPath.c_str(), RTLD_LAZY);
+	this->ptrLib = dlopen(this->libPath.c_str(), RTLD_LAZY);
 
-	if ( hndl == NULL )
+	if ( this->ptrLib == NULL )
 	{
 		std::cout << dlerror() << std::endl;
 		exit( -1 );
 	}
 
-	f = ( IGraphicLib *( * )( int, int ) )( dlsym( hndl, "maker" ) );
+	f = ( IGraphicLib *( * )( int, int ) )( dlsym( this->ptrLib, "maker" ) );
 	if ( f == NULL )
 	{
 		std::cout << dlerror() << std::endl;
@@ -120,6 +121,8 @@ void			RenderEngine::changeLib( int id )
 	if ( this->libPath == v[id - 1] )
 		return ;
 
+	this->lib->end();
+	dlclose( this->ptrLib );
 	this->libPath = v[id - 1];
 	this->loadLib();
 	sleep( 2 );

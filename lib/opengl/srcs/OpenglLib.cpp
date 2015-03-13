@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 17:26:26 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:41:07 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,8 @@ double		OpenglLib::adaptY(double y)
 	return (y);
 }
 
-void		OpenglLib::drawSquare( int x, int y , int color )
+void		OpenglLib::drawSquare( int x, int y , int )
 {
-	(void)color;
 	glBegin(GL_QUADS);
 		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y - ( ZOOM / 15 )));
 		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y + ( ZOOM / 15 )));
@@ -95,9 +94,8 @@ void		OpenglLib::drawSquare( int x, int y , int color )
 
 }
 
-void		OpenglLib::drawCircle( int x, int y , int color )
+void		OpenglLib::drawCircle( int x, int y , int )
 {
-	(void)color;
 	double		angle;
 	double		tmp_x;
 	double		tmp_y;
@@ -114,9 +112,8 @@ void		OpenglLib::drawCircle( int x, int y , int color )
 
 }
 
-void		OpenglLib::drawTriangle( int x, int y , int color )
+void		OpenglLib::drawTriangle( int x, int y , int )
 {
-	(void)color;
 	double		angle;
 	double		tmp_x;
 	double		tmp_y;
@@ -133,9 +130,8 @@ void		OpenglLib::drawTriangle( int x, int y , int color )
 
 }
 
-void		OpenglLib::drawBlock( int x, int y , int color )
+void		OpenglLib::drawBlock( int x, int y , int )
 {
-	(void)color;
 	glBegin(GL_QUADS);
 		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y - ( ZOOM / 15 )));
 		glVertex2d(this->adaptX(x - ( ZOOM / 15 )), this->adaptY(y + ( ZOOM / 15 )));
@@ -152,7 +148,10 @@ void		OpenglLib::drawEmpty( void )
 int		OpenglLib::keyPressed( void )
 {
 	if ( OpenglLib::key == GLFW_KEY_ESCAPE || glfwWindowShouldClose(this->win) )
+	{
 		this->end();
+		return ( -1 );
+	}
 	if ( OpenglLib::key == GLFW_KEY_LEFT )
 		return ( 20 );
 	if ( OpenglLib::key == GLFW_KEY_RIGHT )
@@ -161,26 +160,24 @@ int		OpenglLib::keyPressed( void )
 		return ( 60 );
 	if ( OpenglLib::key == GLFW_KEY_DOWN )
 		return (80);
-	if ( OpenglLib::key == GLFW_KEY_1 )
+	if ( OpenglLib::key == GLFW_KEY_1 || OpenglLib::key == GLFW_KEY_KP_1 )
 		return ( 1 );
-	if ( OpenglLib::key == GLFW_KEY_2 )
+	if ( OpenglLib::key == GLFW_KEY_2 || OpenglLib::key == GLFW_KEY_KP_2 )
 		return ( 2 );
-	if ( OpenglLib::key == GLFW_KEY_3 )
+	if ( OpenglLib::key == GLFW_KEY_3 || OpenglLib::key == GLFW_KEY_KP_3 )
 		return ( 3 );
 	return ( 0 );
 }
 
-void		OpenglLib::score( int score )
+void		OpenglLib::score( int )
 {
-	(void)score;
-	 // mvprintw( this->height + 4, 0, "Score: %d ", score );
+	return ;
 }
 
 void	OpenglLib::end( void )
 {
 	glfwDestroyWindow(this->win);
 	glfwTerminate();
-	exit(0);
 }
 
 void		OpenglLib::refresh( void )

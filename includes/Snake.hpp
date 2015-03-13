@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Snake.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 15:23:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:29:56 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/13 11:30:34 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Snake : public AGameObject
 		Snake( void );
 		Snake( int x, int y, std::string direction );
 		Snake( Snake const & cpy );
-		~Snake( void );
+		virtual ~Snake( void );
 
 		/*
 		** OPERATOR
