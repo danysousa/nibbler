@@ -6,7 +6,7 @@
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 17:07:37 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/04 10:32:20 by nschilli         ###   ########.fr       */
+/*   Updated: 2015/03/12 16:29:10 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FOOD_HPP
 # include <AGameObject.hpp>
 # include <iostream>
+# include <Snake.hpp>
 
 class Food : public AGameObject
 {
@@ -41,8 +42,8 @@ class Food : public AGameObject
 		/*
 		** METHOD
 		*/
-		virtual void	update( void );
-		virtual void	render( void );
+		virtual void	render( IGraphicLib *lib );
+		void			changePos( Snake *snake, int width, int height );
 
 	private:
 		int				x;

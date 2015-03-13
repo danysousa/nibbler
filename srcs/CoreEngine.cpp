@@ -6,17 +6,24 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 15:21:59 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 13:23:03 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <CoreEngine.hpp>
 #include <iostream>
+#include <ctime>
+#include <unistd.h>
 
 /*
 ** CONSTRUCT & DESTRUCT
 */
-CoreEngine::CoreEngine( void ) : gameEngine( new GameEngine )
+CoreEngine::CoreEngine( void ) : gameEngine( new GameEngine ), start( 1 )
+{
+	return ;
+}
+
+CoreEngine::CoreEngine( int width, int height, std::string lib, int diff ) : gameEngine( new GameEngine( width, height, lib ) ), start( 1 ), diff( diff )
 {
 	return ;
 }
@@ -37,9 +44,59 @@ CoreEngine::~CoreEngine( void )
 */
 CoreEngine		CoreEngine::operator=( CoreEngine const & cpy )
 {
-	return cpy;
+	return ( cpy );
 }
 
 /*
 ** METHOD
 */
+void			CoreEngine::loop( void )
+{
+	long double		tmp;
+
+	this->gameEngine->wall( this->gameEngine->getRender()->getLib() );
+	this->gameEngine->getSnake()->render( this->gameEngine->getRender()->getLib() );
+	while ( this->start )
+	{
+		this->timeStart = clock();
+		this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
+		this->gameEngine->updateAll();
+		this->gameEngine->renderAll();
+
+		if ( this->gameEngine->getInput() == 42 )
+		{
+			usleep( 90000 );
+			this->gameEngine->getRender()->getLib()->refresh();
+			while ( this->gameEngine->getRender()->getLib()->keyPressed() != 42 )
+			{
+				this->gameEngine->getRender()->getLib()->refresh();
+				usleep( 90000 );
+			}
+		}
+
+		if ( this->gameEngine->getInput() == -1
+			|| this->gameEngine->getSnake()->isDead( this->gameEngine->getWidthMap(), this->gameEngine->getHeightMap() ) )
+		{
+			this->start = 0;
+			this->gameEngine->getRender()->getLib()->end();
+			break ;
+		}
+
+		this->checkChangeLib();
+		this->timeEnd = clock();
+		tmp = (static_cast<long double>(this->timeEnd) - static_cast<long double>(this->timeStart)) / CLOCKS_PER_SEC;
+		if ( tmp < 0.04 )
+			usleep( ((0.4 - tmp ) * 450000) / this->diff );
+
+		this->gameEngine->getRender()->getLib()->refresh();
+	}
+	return ;
+}
+
+void			CoreEngine::checkChangeLib( void )
+{
+	if ( this->gameEngine->getInput() > 3 || this->gameEngine->getInput() == 0 )
+		return ;
+
+	this->gameEngine->getRender()->changeLib( this->gameEngine->getInput() );
+}

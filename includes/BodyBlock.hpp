@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 16:11:36 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/03 16:43:36 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:30:53 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class BodyBlock
 		*/
 		BodyBlock( BodyBlock const & cpy );
 		BodyBlock( int x, int y, int color );
-		~BodyBlock( void );
+		virtual ~BodyBlock( void );
 
 		/*
 		** OPERATOR
@@ -34,6 +34,10 @@ class BodyBlock
 		int		getX( void ) const;
 		int		getY( void ) const;
 		int		getColor( void ) const;
+		void	mooveX( int x );
+		void	mooveY( int y );
+		void	setX( int x );
+		void	setY( int y );
 
 		/*
 		** METHOD

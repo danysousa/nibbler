@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AGameObject.hpp                                    :+:      :+:    :+:   */
+/*   maker.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschilli <nschilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/03 14:59:01 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 16:29:33 by nschilli         ###   ########.fr       */
+/*   Created: 2015/03/04 13:18:14 by nschilli          #+#    #+#             */
+/*   Updated: 2015/03/11 16:52:24 by nschilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AGAMEOBJECT_HPP
-# define AGAMEOBJECT_HPP
+#include <SdlLib.hpp>
+#include <iostream>
 
-# include <IGraphicLib.hpp>
-
-class AGameObject
+extern "C" SdlLib		*maker( int width, int height )
 {
-	public:
-		/*
-		** CONSTRUCT & DESTRUCT
-		*/
-		AGameObject( void );
-		AGameObject( AGameObject const & );
-		virtual ~AGameObject( void );
+	SdlLib *n = new SdlLib( width, height );
 
-		/*
-		** METHOD
-		*/
-		virtual void	render( IGraphicLib *lib ) = 0;
-
-};
-
-#endif
+	return ( n );
+}
