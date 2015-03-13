@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 17:26:16 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 10:08:58 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,10 @@ int		NcursesLib::keyPressed( void )
 		return ( key - 48 );
 
 	if ( key == 27 )
+	{
 		this->end();
+		return ( -1 );
+	}
 	if ( key == KEY_LEFT )
 		return ( 20 );
 	if ( key == KEY_RIGHT )
@@ -133,7 +136,6 @@ void		NcursesLib::score( int score )
 void	NcursesLib::end( void )
 {
 	endwin();
-	exit(0);
 }
 
 void		NcursesLib::refresh( void )

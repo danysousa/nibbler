@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 17:26:26 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:02:10 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,10 @@ void		OpenglLib::drawEmpty( void )
 int		OpenglLib::keyPressed( void )
 {
 	if ( OpenglLib::key == GLFW_KEY_ESCAPE || glfwWindowShouldClose(this->win) )
+	{
 		this->end();
+		return ( -1 );
+	}
 	if ( OpenglLib::key == GLFW_KEY_LEFT )
 		return ( 20 );
 	if ( OpenglLib::key == GLFW_KEY_RIGHT )
@@ -161,11 +164,11 @@ int		OpenglLib::keyPressed( void )
 		return ( 60 );
 	if ( OpenglLib::key == GLFW_KEY_DOWN )
 		return (80);
-	if ( OpenglLib::key == GLFW_KEY_1 )
+	if ( OpenglLib::key == GLFW_KEY_1 || OpenglLib::key == GLFW_KEY_KP_1 )
 		return ( 1 );
-	if ( OpenglLib::key == GLFW_KEY_2 )
+	if ( OpenglLib::key == GLFW_KEY_2 || OpenglLib::key == GLFW_KEY_KP_2 )
 		return ( 2 );
-	if ( OpenglLib::key == GLFW_KEY_3 )
+	if ( OpenglLib::key == GLFW_KEY_3 || OpenglLib::key == GLFW_KEY_KP_3 )
 		return ( 3 );
 	return ( 0 );
 }
@@ -180,7 +183,6 @@ void	OpenglLib::end( void )
 {
 	glfwDestroyWindow(this->win);
 	glfwTerminate();
-	exit(0);
 }
 
 void		OpenglLib::refresh( void )

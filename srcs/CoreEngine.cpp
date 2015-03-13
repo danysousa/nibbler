@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/03 13:45:23 by dsousa            #+#    #+#             */
-/*   Updated: 2015/03/12 17:03:10 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 10:24:42 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,23 @@ void			CoreEngine::loop( void )
 		this->gameEngine->cleanScreen( this->gameEngine->getRender()->getLib() );
 		this->gameEngine->updateAll();
 		this->gameEngine->renderAll();
+
+		if ( this->gameEngine->getInput() == -1
+			|| this->gameEngine->getSnake()->isDead( this->gameEngine->getWidthMap(), this->gameEngine->getHeightMap() ) )
+		{
+			this->start = 0;
+			this->gameEngine->getRender()->getLib()->end();
+			break ;
+		}
+
 		this->checkChangeLib();
-
 		this->timeEnd = clock();
-
 		tmp = (static_cast<long double>(this->timeEnd) - static_cast<long double>(this->timeStart)) / CLOCKS_PER_SEC;
 		if ( tmp < 0.04 )
 			usleep( (0.4 - tmp ) * 150000 );
 
 		this->gameEngine->getRender()->getLib()->refresh();
 	}
-
 	return ;
 }
 

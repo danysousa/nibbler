@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/04 13:11:14 by nschilli          #+#    #+#             */
-/*   Updated: 2015/03/12 17:26:34 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/03/13 11:00:55 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,11 @@ void		SdlLib::drawEmpty( void )
 
 int		SdlLib::keyPressed( void )
 {
+	if( this->key == SDL_QUIT || this->key == SDL_WINDOWEVENT_CLOSE || this->key == SDL_SCANCODE_ESCAPE)
+	{
+		this->end();
+		return ( -1 );
+	}
 	if ( this->key == SDL_SCANCODE_LEFT )
 		return ( 20 );
 	if ( this->key == SDL_SCANCODE_RIGHT )
@@ -141,12 +146,12 @@ int		SdlLib::keyPressed( void )
 		return ( 60 );
 	if ( this->key == SDL_SCANCODE_DOWN )
 		return (80);
-	if ( this->key == SDL_SCANCODE_KP_1)
+	if ( this->key == SDL_SCANCODE_KP_1 || this->key == SDL_SCANCODE_1 )
 		return ( 1 );
-	if ( this->key == SDL_SCANCODE_KP_2)
-		return ( 1 );
-	if ( this->key == SDL_SCANCODE_KP_3)
-		return ( 1 );
+	if ( this->key == SDL_SCANCODE_KP_2 || this->key == SDL_SCANCODE_2 )
+		return ( 2 );
+	if ( this->key == SDL_SCANCODE_KP_3 || this->key == SDL_SCANCODE_3 )
+		return ( 3 );
 	return (0);
 }
 
@@ -160,7 +165,6 @@ void		SdlLib::end( void )
 {
 	SDL_DestroyWindow( this->win );
 	SDL_Quit();
-	exit( 0 );
 }
 
 void		SdlLib::refresh( void )
@@ -170,8 +174,6 @@ void		SdlLib::refresh( void )
 	{
 		//User requests quit
 		this->key = this->event.key.keysym.scancode;
-		if( this->key == SDL_QUIT || this->key == SDL_WINDOWEVENT_CLOSE || this->key == SDL_SCANCODE_ESCAPE)
-			this->end();
 	}
 
 	SDL_RenderPresent( this->renderer );
